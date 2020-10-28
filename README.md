@@ -17,14 +17,9 @@
  > * Each member of the group **must** be committing code regularly and make sure their code is correctly attributed to them. We will be checking attributions to determine if there was equal contribution to the project.
 
 ## Project Description
- > Your project description should summarize the project you are proposing. Be sure to include
- > * Why is it important or interesting to you?
- > * What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
- >   * [toolname](link) - Short description
- > * What will be the input/output of your project?
- > * What are the three design patterns you will be using. For each design pattern you must:
- >   * Explain in 3 - 5 sentences why you picked this pattern and what feature you will implement with it
- > * This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted. 
+> Game Design has always been a topic that interested us. This project would be a stepping stone, not only to demonstrate our ability of using C++ but, into professional game development and working cohesively in a group. C++ is the main language that will be used to create this project. GoogleTest is utilized to perform several unit tests. **Singleton** - The character class illustrates the singleton pattern because it keeps track of the single character and makes sure there is only one at a time. We picked the singleton pattern because we knew that there would only ever need to be one character at a time. We also thought that implementing this pattern would help protect against possible bugs where more than one character was created. 
+**Strategy** -  The “attack()” function within the parent class of character and mob will change depending on the type of object created during runtime. This illustrates how an object's behavior will vary depending on the execution of the algorithm in context of the object. It will allow us to select an algorithm that will match with what character/mob that is created.
+**Composite** - The item objects represent the composite design pattern because the item objects have two sub-classes: Consumables and Equipables will be treated as item objects. The composite pattern was chosen due to the fact that the game will utilize entities or “items.” The items objects will consist of a pure virtual function in which its subclasses will implement. 
 
  > ## Phase II
  > In addition to completing the "Class Diagram" section below, you will need to 
