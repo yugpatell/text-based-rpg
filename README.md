@@ -19,16 +19,17 @@
 
 ## Project Description
 > Game Design has always been a topic that interested us. This project would be a stepping stone, not only to demonstrate our ability of using C++ but, into professional game development and working cohesively in a group. C++ is the main language that will be used to create this project. GoogleTest is utilized to perform several unit tests. **Singleton** - The character class illustrates the singleton pattern because it keeps track of the single character and makes sure there is only one at a time. We picked the singleton pattern because we knew that there would only ever need to be one character at a time. We also thought that implementing this pattern would help protect against possible bugs where more than one character was created. 
-**Strategy** -  The “attack()” function within the parent class of character and mob will change depending on the type of object created during runtime. This illustrates how an object's behavior will vary depending on the execution of the algorithm in context of the object. It will allow us to select an algorithm that will match with what character/mob that is created.
+**Strategy** -  The “attack()” function within the parent class of character and mob will change depending on the type of object created during runtime. This illustrates how an object's behavior will vary depending on the execution of the algorithm in context of the object. It will allow us to select an algorithm that will match with what character that is created.
 **Factory** - Different factories would be created depending on the chosen character. These factories would decide which weapon subclass to implement. For example, the archer weapon subclass would be chosen if the archer was the chosen character class.  
 ![Output](https://user-images.githubusercontent.com/57920851/99169077-b3aaff00-26bb-11eb-83be-1498b580d982.png)<br/>
 The output will look like this when the game starts and it will prompt the user for input everyday. As of now, the game will end whenever the user reaches X amount of rounds or the character dies.
 
  > ## Phase II  
+ ## Class Diagram
 ![SINGLETON](https://user-images.githubusercontent.com/57920851/99177841-130c0d80-26c2-11eb-853e-81f7fa10a1b4.png)  
 ![STRATEGY](https://user-images.githubusercontent.com/57920851/99177857-3931ad80-26c2-11eb-92c8-e471043001f8.png)  
 ![ABSTRACTFACTORY](https://user-images.githubusercontent.com/57920851/99177861-42227f00-26c2-11eb-9908-cd71d37aecdb.png)  
-## Class Diagram
+
  > Include a class diagram(s) for each design pattern and a description of the diagram(s). This should be in sufficient detail that another group could pick up the project this point and successfully complete it. Use proper OMT notation (as discussed in the course slides). You may combine multiple design patterns into one diagram if you'd like, but it needs to be clear which portion of the diagram represents which design pattern (either in the diagram or in the description). 
  
  > ## Phase III
