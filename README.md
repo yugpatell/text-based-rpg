@@ -27,8 +27,8 @@
 ![SINGLETON](https://user-images.githubusercontent.com/57920851/99177841-130c0d80-26c2-11eb-853e-81f7fa10a1b4.png)  
 ![STRATEGY](https://user-images.githubusercontent.com/57920851/99177857-3931ad80-26c2-11eb-92c8-e471043001f8.png)  
 ![ABSTRACTFACTORY](https://user-images.githubusercontent.com/57920851/99177861-42227f00-26c2-11eb-9908-cd71d37aecdb.png)  
-
- > Include a class diagram(s) for each design pattern and a description of the diagram(s). This should be in sufficient detail that another group could pick up the project this point and successfully complete it. Use proper OMT notation (as discussed in the course slides). You may combine multiple design patterns into one diagram if you'd like, but it needs to be clear which portion of the diagram represents which design pattern (either in the diagram or in the description). 
+Refer to the descriptions above that describe how each pattern will be implemented in our project.
+ 
  
  > ## Phase III
  > You will need to schedule a check-in with the TA (during lab hours or office hours). Your entire team must be present. 
