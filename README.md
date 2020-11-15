@@ -47,7 +47,7 @@
  ## Screenshots
  > Screenshots of the input/output after running your application  
  ![Output](https://user-images.githubusercontent.com/57920851/99169077-b3aaff00-26bb-11eb-83be-1498b580d982.png)<br/>
-The output will look like this when the game starts and it will prompt the user for input everyday. As of now, the game will end whenever the user reaches X amount of rounds or the character dies.
+The output will look like this when the game starts and it will prompt the user for input everyday. As of now, the game will end whenever the user reaches 20 days or the character dies.
  ## Installation/Usage
  > Instructions on installing and running your application
  ## Testing
