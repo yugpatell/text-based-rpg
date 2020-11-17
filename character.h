@@ -29,7 +29,7 @@ class Character {
 		Character(string name, characterType role);
 	//public:
 	//	virtual void attack(Mob* mob) = 0;
-       //	virtual void levelUp() = 0;
+     		virtual void levelUp() = 0;
 		Character* getInstance();
 	
 		
