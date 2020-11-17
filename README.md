@@ -24,7 +24,7 @@
 
  > ## Phase II  
  ## Class Diagram
-> ![SINGLETON](https://user-images.githubusercontent.com/57920851/99177841-130c0d80-26c2-11eb-853e-81f7fa10a1b4.png)  
+> ![SINGLETON](https://user-images.githubusercontent.com/66883374/99351868-6ca54100-2856-11eb-89e7-36157e47fe67.png)  
 > ![STRATEGY](https://user-images.githubusercontent.com/57920851/99177857-3931ad80-26c2-11eb-92c8-e471043001f8.png)  
 > ![ABSTRACTFACTORY](https://user-images.githubusercontent.com/57920851/99177861-42227f00-26c2-11eb-9908-cd71d37aecdb.png)  
 > Refer to the descriptions above that describe how each pattern will be implemented in our project.
