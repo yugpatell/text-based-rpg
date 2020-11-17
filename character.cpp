@@ -4,11 +4,12 @@
 #include "character.h"
 
 Character* Character::getInstance(){
-        if (_instance == 0){
-                _instance = new Character();
+        if (!_instance){
+                _instance = new Character;
         }
 	return _instance;
 }
+
 Character::Character(){
 	_instance = 0;
 	name = " ";
@@ -31,7 +32,7 @@ Character::Character(string name, characterType role){
 	maxHP = 30;
 	currHP = 30;
 	this->role = role;
-        atk = 10;
+         atk = 10;
         defense = 5;
         level = 1;
         currExp = 0;
@@ -40,6 +41,7 @@ Character::Character(string name, characterType role){
 //      invEquipment = 0; will be Pointer to inventory of Equipment of size 100
 //      invConsumable = 0; will be Pointer to inventory of Consumables of size 100
 }
+
 
 
 #endif //__CHARACTER_CPP__

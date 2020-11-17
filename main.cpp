@@ -2,11 +2,13 @@
 #include <iostream>
 using namespace std;
 
+Character* Character::_instance = 0;
+
 int main() {
-	Character* test1 = new Character();
+	Character* test1 = test1->getInstance();
 	cout << "Created a default character" << endl;
 
-	string name2 = "Thomas";
+/*	string name2 = "Thomas";
 	characterType role2= KNIGHT;
 	Character* test2 = new Character(name2, role2);
 	cout << "Created a Character with the name Thomas and the class Knight" <<endl;
@@ -19,7 +21,7 @@ int main() {
 	string name4 = "Scott";
         characterType role4 = ARCHER;
         Character* test4 = new Character(name4, role4);
-        cout << "Created a Character with the name Scott and the class Archer" <<endl;
+        cout << "Created a Character with the name Scott and the class Archer" <<endl; */
 
 	return 0;
 }
