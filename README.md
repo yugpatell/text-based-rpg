@@ -49,7 +49,19 @@
  ![Output](https://user-images.githubusercontent.com/57920851/99169077-b3aaff00-26bb-11eb-83be-1498b580d982.png)<br/>
 The output will look like this when the game starts and it will prompt the user for input everyday. As of now, the game will end whenever the user reaches 20 days or the character dies.
  ## Installation/Usage
- > Instructions on installing and running your application
+ > Generate the makefile to run the game
+ 
+ .. code:: shell
+     
+     $ cmake .
+     
+  
+ > Generate the file to run the game
+
+ .. code:: shell
+     
+     $ make
+     
  ## Testing
  > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
  
