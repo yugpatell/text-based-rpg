@@ -51,15 +51,10 @@ The output will look like this when the game starts and it will prompt the user 
  ## Installation/Usage
  > Generate the makefile to run the game
  
- .. code:: shell
-     
      $ cmake .
-     
   
  > Generate the file to run the game
-
- .. code:: shell
-     
+ 
      $ make
      
  ## Testing
