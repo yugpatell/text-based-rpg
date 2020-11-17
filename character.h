@@ -6,27 +6,32 @@
 
 using namespace std;
 
+enum characterType {KNIGHT, MAGE, ARCHER};
+
 class Character {
 	private:
-		static Character* _instance;
+		Character* _instance;
 	protected:
 		string name;
 		int maxHP;
 		int currHP;
-		//enum role;
-		int attack;
+	 	characterType role;
+		int atk; //attack
 		int defense;
 		int level;
 		int currExp;
-		AttackStrategy* attackMethod;
-		vector<Equipable*> currEquipment;
-		vector<Equipable*> invEquipment;
-		vector<Consumable*> invConsumable;
-		Character();
+		//AttackStrategy* attackMethod;
+		//vector<Equipable*> currEquipment;
+		//vector<Equipable*> invEquipment;
+		//vector<Consumable*> invConsumable;
 	public:
-		virtual void attack(Mob* mob) = 0;
-		virtual void levelUp() = 0;
-		static Character* instance();
+		Character();
+		Character(string name, characterType role);
+	//public:
+	//	virtual void attack(Mob* mob) = 0;
+       //	virtual void levelUp() = 0;
+		Character* getInstance();
+	
 		
 };
 
