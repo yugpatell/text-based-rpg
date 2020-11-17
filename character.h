@@ -10,7 +10,7 @@ enum characterType {KNIGHT, MAGE, ARCHER};
 
 class Character {
 	private:
-		Character* _instance;
+		static Character* _instance;
 	protected:
 		string name;
 		int maxHP;
@@ -24,13 +24,12 @@ class Character {
 		//vector<Equipable*> currEquipment;
 		//vector<Equipable*> invEquipment;
 		//vector<Consumable*> invConsumable;
-	public:
 		Character();
 		Character(string name, characterType role);
-	//public:
+	public:
 	//	virtual void attack(Mob* mob) = 0;
      		virtual void levelUp() = 0;
-		Character* getInstance();
+		static Character* getInstance();
 	
 		
 };
