@@ -1,6 +1,3 @@
-#ifndef __EQUIPABLE_CPP__
-#define __EQUIPABLE_CPP__
-
 #include <equipable.h>
 
 Equipable::Equipable(){
@@ -21,4 +18,3 @@ int Equipable::getValue(){
 	return value;
 }
  
-#endif //__EQUIPABLE_CPP__
