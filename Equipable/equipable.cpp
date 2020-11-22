@@ -1,13 +1,15 @@
-#include <equipable.h>
+#include "equipable.h"
 
 Equipable::Equipable(){
 	level = 1; //level required to equip item
 	value = 5; //number to increase (STAT) by
+	role = 0; //defaulted to knight role
 }
 
-Equipable::Equipable(int lvl, int rarity){
+Equipable::Equipable(int lvl, int rarity, int role){
 	level = lvl;
 	value = lvl + (rarity*3);
+	this->role = role;
 }
 
 int Equipable::getLevel(){
@@ -18,3 +20,6 @@ int Equipable::getValue(){
 	return value;
 }
  
+int Equipable::getRole(){
+	return role;
+}

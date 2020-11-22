@@ -9,7 +9,7 @@ class Chainmail : public Armor {
                 string name;
         public:
                 Chainmail() : Armor(){ name = " ";}
-                Chainmail(int lvl, int rarity, string n) : Armor(lvl, rarity, 0){ name = n;}
+                Chainmail(int lvl, int rarity, string n) : Armor(lvl, rarity, 2, 0){ name = n;}
                 string getName() { return name;}
 };
 

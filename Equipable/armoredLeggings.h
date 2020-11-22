@@ -9,7 +9,7 @@ class ArmoredLeggings : public Armor {
                 string name;
         public:
                 ArmoredLeggings() : Armor(){ name = " ";}
-                ArmoredLeggings(int lvl, int rarity, string n) : Armor(lvl, rarity, 1){ name = n;}
+                ArmoredLeggings(int lvl, int rarity, string n) : Armor(lvl, rarity, 0, 1){ name = n;}
                 string getName() { return name;}
 };
 

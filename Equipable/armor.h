@@ -6,9 +6,9 @@
 class Armor : public Equipable{
 	private:
 		bool isChestPiece; //0 = chest, 1 = pants
-	protected:
+	public:
 		Armor(): Equipable(){ isChestPiece = 0;}
-		Armor(int lvl, int rarity, bool chestOrPants): Equipable(lvl, rarity){ isChestPiece = chestOrPants;}
+		Armor(int lvl, int rarity, int role, bool chestOrPants): Equipable(lvl, rarity, role){ isChestPiece = chestOrPants;}
 		bool getChestOrPants(){ return isChestPiece;}
 }; 
 

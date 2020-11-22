@@ -9,7 +9,7 @@ class Robe : public Armor {
                 string name;
         public:
                 Robe() : Armor(){ name = " ";}
-                Robe(int lvl, int rarity, string n) : Armor(lvl, rarity, 0){ name = n;}
+                Robe(int lvl, int rarity, string n) : Armor(lvl, rarity, 1, 0){ name = n;}
                 string getName() { return name;}
 };
 
