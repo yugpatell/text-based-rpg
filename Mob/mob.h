@@ -25,19 +25,19 @@ protected:
 
 public:
     virtual int attackChar(int charDefense) = 0;
-    get_mob_hp() {
+    int get_mob_hp() {
 	    return hp;
     }
-    get_mob_atk() {
+    int get_mob_atk() {
 	    return attack;
     }
-    get_mob_def() {
+    int get_mob_def() {
 	    return defense;
     }
-    get_mob_lvl() {
+    int get_mob_lvl() {
 	    return level;
     }
-    get_mob_exp() {
+    int get_mob_exp() {
 	    return giveExp;
     }
 
