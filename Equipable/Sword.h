@@ -1,7 +1,7 @@
 #ifndef __SWORD_H__
 #define __SWORD_H__
 
-#include "weapon.h"
+#include "Weapon.h"
 #include <string>
 
 class Sword : public Weapon {

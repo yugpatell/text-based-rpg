@@ -1,4 +1,4 @@
-#include "equipable.h"
+#include "Equipable.h"
 
 Equipable::Equipable(){
 	level = 1; //level required to equip item

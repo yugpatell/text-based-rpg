@@ -1,7 +1,7 @@
 #ifndef __CHESTPLATE_H__
 #define __CHESTPLATE_H__
 
-#include "armor.h"
+#include "Armor.h"
 #include <string>
 
 class Chestplate : public Armor {

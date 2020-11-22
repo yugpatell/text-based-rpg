@@ -1,7 +1,7 @@
 #ifndef __ARMOREDLEGGINGS_H__
 #define __ARMOREDLEGGINGS_H__
 
-#include "armor.h"
+#include "Armor.h"
 #include <string>
 
 class ArmoredLeggings : public Armor {

@@ -1,7 +1,7 @@
 #ifndef __ROBE_H__
 #define __ROBE_H__
 
-#include "armor.h"
+#include "Armor.h"
 #include <string>
 
 class Robe : public Armor {

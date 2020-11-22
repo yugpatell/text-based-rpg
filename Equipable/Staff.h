@@ -1,7 +1,7 @@
 #ifndef __STAFF_H__
 #define __STAFF_H__
 
-#include "weapon.h"
+#include "Weapon.h"
 #include <string>
 
 class Staff : public Weapon {

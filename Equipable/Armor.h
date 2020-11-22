@@ -1,7 +1,7 @@
 #ifndef __ARMOR_H__
 #define __ARMOR_H__
 
-#include "equipable.h"
+#include "Equipable.h"
 
 class Armor : public Equipable{
 	private:

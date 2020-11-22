@@ -1,7 +1,7 @@
 #ifndef __LEATHERPANTS_H__
 #define __LEATHERPANTS_H__
 
-#include "armor.h"
+#include "Armor.h"
 #include <string>
 
 class LeatherPants : public Armor {

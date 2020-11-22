@@ -1,7 +1,7 @@
 #ifndef __SILKPANTS_H__
 #define __SILKPANTS_H__
 
-#include "armor.h"
+#include "Armor.h"
 #include <string>
 
 class SilkPants : public Armor {

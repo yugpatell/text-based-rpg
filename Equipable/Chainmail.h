@@ -1,7 +1,7 @@
 #ifndef __CHAINMAIL_H__
 #define __CHAINMAIL_H__
 
-#include "armor.h"
+#include "Armor.h"
 #include <string>
 
 class Chainmail : public Armor {
