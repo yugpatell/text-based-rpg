@@ -12,9 +12,8 @@ class KnightAttack : public AttackStrategy {
     public:
         KnightAttack() : AttackStrategy() { };
 
-        int attack(Character * currCharacter) {
-            cout << "Knight attack to be implemented" << endl;
-            return -1;
+        int attackMob(Character * currCharacter, Mob * currMob) {
+            return ((((((2 * currCharacter->getLevel()) / 5) + 2) * 35 * currCharacter->getAtk()) / currCharacter->getcurrHP()) / 5 / 50) + 2;
         }
 };
 

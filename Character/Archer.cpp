@@ -8,33 +8,34 @@ Archer::Archer(string name, characterType role) {
     attackMethod = new ArcherAttack();
     this->name = name;
     this->role = role;
-    int maxHP = 10;
-    int currHP = 10;
-    int atk = 5;
-    int defense = 5;
-    int level = 5;
-    int currXP = 5;
+    maxHP = 10;
+    currHP = 10;
+    atk = 5;
+    defense = 5;
+    level = 1;
+    currXP = 0;
 }
 
-void Archer::attack() {
+int Archer::attack(Mob * currMob) {
     try {
         if (this->attackMethod == nullptr) {
             throw std::invalid_argument("Nullptr detected");
         }
         else {
-            this->attackMethod->attack(this);
+           return this->attackMethod->attackMob(this, currMob);
         }
     }
     catch (std::invalid_argument error) {
         cerr << error.what() << endl;
+        return -1;
     }
 }
 
 void Archer::levelUp() {
-   maxHP += 2;
-   currHP += 2;
-   atk += 3;
-   defense += 1;
+   maxHP += 3;
+   currHP += 3;
+   atk += 5;
+   defense += 2;
    level += 1;
    currXP = 0;
 }

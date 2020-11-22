@@ -5,18 +5,21 @@
 
 class Troll : public Mob {
 public:
-    Troll(int characterlevel) {
-    	hp = 2*characterlevel + rand() % (5*characterlevel/4);
-	attack = 2*characterlevel + rand() % (5*characterlevel/4);
-	defense = 4*characterlevel + rand() % (5*characterlevel/4);
-	level = abs(characterlevel - 3 + rand() % 6);
-	giveExp = level*10*attack/defense;
+    Troll(){
     }
 
-protected:
-    virtual attack() {
-	return (((((2*level/5)+2)*(35+(level*9/10))*attack)/get_character_defense())/50)+2;
-    };
+    Troll(int characterlevel) {
+        srand(time(NULL));
+    	hp = 2 * characterlevel + rand() % (5 * characterlevel / 4);
+	    attack = 2 * characterlevel + rand() % (5 * characterlevel / 4);
+	    defense = 4 * characterlevel + rand() % (5 * characterlevel / 4);
+	    level = abs(characterlevel - 3 + rand() % 6);
+	    giveExp = level * 10 * attack / defense;
+    }
+
+    int attackChar(int charDefense) {
+	    return (((((2 * level / 5) + 2) * (35 + (level * 9 / 10)) * attack) / charDefense) / 50) +2;
+    }
 
 };
 

@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include "../AttackStrategy/AttackStrategy.h"
+#include "../Mob/mob.h"
+
 using namespace std;
 
 enum characterType {KNIGHT, MAGE, ARCHER};
@@ -35,9 +37,33 @@ class Character {
             this->attackMethod = attackMethod;
         }
 
-        virtual void attack() = 0;
+        virtual int attack(Mob * currMob) = 0;
 
         virtual void levelUp() = 0;
+
+        int getMaxHP() const {
+            return maxHP;
+        }
+        int getcurrHP() const {
+            return currHP;
+        }
+        int getAtk() const {
+            return atk;
+         }
+        int getDefense() const {
+            return defense;
+        }
+        int getLevel() const {
+            return level;
+        }
+        int getcurrXP() const {
+            return currXP;
+        }
+        void setLevel(int newLevel)  {
+            for (unsigned int i = 0; i < newLevel; i++) {
+                this->levelUp();
+            }
+        }
 };
 
 
