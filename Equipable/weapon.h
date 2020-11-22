@@ -1,0 +1,14 @@
+#ifndef __WEAPON_H__
+#define __WEAPON_H__
+
+#include "equipable.h"
+
+class Weapon : public Equipable {
+	private:
+
+	public:
+		Weapon() : Equipable() {};
+		Weapon(int lvl, int rarity, int role) : Equipable(lvl, rarity, role) {};
+};
+
+#endif //__WEAPON_H__
