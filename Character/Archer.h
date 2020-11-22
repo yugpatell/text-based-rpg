@@ -7,7 +7,7 @@ class Archer : public Character {
 
 public:
     Archer(string, characterType);
-    void attack();
+    int attack(Mob * currMob);
     void levelUp();
 };
 

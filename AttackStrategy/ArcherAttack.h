@@ -2,6 +2,7 @@
 #define __ARCHERATTACK_H__
 
 #include "../Character/Character.h"
+
 #include "AttackStrategy.h"
 #include <iostream>
 
@@ -12,9 +13,8 @@ class ArcherAttack : public AttackStrategy {
     public:
         ArcherAttack() : AttackStrategy() { };
 
-        int attack(Character * currCharacter) {
-            cout << "Archer attack to be implemented" << endl;
-            return -1;
+        int attackMob(Character * currCharacter, Mob * currMob) {
+            return (((((2 * currCharacter->getLevel() / 5 ) + 2) * (35 + (currCharacter->getLevel())) * currCharacter->getAtk()) / currMob->get_mob_def()) / 50) + 1;
         }
 };
 

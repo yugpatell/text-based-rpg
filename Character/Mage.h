@@ -8,7 +8,7 @@ class Mage : public Character {
 
 public:
     Mage(string, characterType);
-    void attack();
+    int attack(Mob * currMob);
     void levelUp();
 
 };

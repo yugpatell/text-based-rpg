@@ -8,7 +8,7 @@ class Knight : public Character {
 
     public:
        Knight(string, characterType);
-       void attack();
+       int attack(Mob * currMob);
        void levelUp();
 
 };

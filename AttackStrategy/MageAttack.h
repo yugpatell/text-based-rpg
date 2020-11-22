@@ -12,9 +12,8 @@ class MageAttack : public AttackStrategy {
     public:
         MageAttack() : AttackStrategy() { };
 
-        int attack(Character * currCharacter) {
-            cout << "Mage attack to be implemented" << endl;
-            return -1;
+        int attackMob(Character * currCharacter, Mob * currMob) {
+            return ((((((2 * currCharacter->getLevel()) / 5) + 2) * ((currCharacter->getcurrHP() / 2) + 2) * currCharacter->getAtk()) / currMob->get_mob_def()) / 50) + 2;
         }
 };
 
