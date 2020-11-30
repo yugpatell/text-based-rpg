@@ -10,7 +10,7 @@
 #include "../Mob/wolf.h"
 #include "../Mob/troll.h"
 #include "../Mob/yeti.h"
-#include "../Consumable/Potion.h";
+#include "../Consumable/Potion.h"
 
 using namespace std;
 
