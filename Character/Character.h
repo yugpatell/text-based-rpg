@@ -2,8 +2,10 @@
 #define __CHARACTER_H__
 
 #include <iostream>
+#include <vector>
 #include "../AttackStrategy/AttackStrategy.h"
 #include "../Mob/mob.h"
+#include "../Consumable/Consumable.cpp"
 
 using namespace std;
 
@@ -20,6 +22,7 @@ class Character {
         int level;
         int currXP;
         characterType role;
+        vector<Consumable *> consumables;
 
     public:
         Character() {
@@ -59,11 +62,36 @@ class Character {
         int getcurrXP() const {
             return currXP;
         }
-        void setLevel(int newLevel)  {
-            for (unsigned int i = 0; i < newLevel; i++) {
+        void setcurrHP(int additionalHP) {
+            if (additionalHP + currHP > this->getMaxHP()) {
+                currHP += additionalHP;
+            }
+            else {
+                currHP = maxHP;
+            }
+        }
+        void setcurrHPAttack(int additionalHP) {
+            currHP -= additionalHP;
+        }
+        void setcurrXP(int XP) {
+            currXP += XP;
+            if (currXP >= 100) {
                 this->levelUp();
             }
         }
+        void addConsumables(Consumable * consum) {
+            consumables.push_back(consum);
+        }
+        void removeConsumablesAt(int index) {
+            consumables.erase(consumables.begin() + index);
+        }
+        int consumablesSize() {
+            return consumables.size();
+        }
+        Consumable * consumablesAt(int index) {
+            return consumables.at(index);
+        }
+
 };
 
 

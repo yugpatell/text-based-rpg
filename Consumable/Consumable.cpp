@@ -5,9 +5,10 @@ Consumable::Consumable(){
 	value = 5; //number to increase (STAT) by
 }
 
-Consumable::Consumable(int lvl, int rarity){
+Consumable::Consumable(int lvl, int rarity, string name){
 	level = lvl;
 	value = lvl + (rarity*3);
+	this->name = name;
 }
 
 int Consumable::getLevel(){
@@ -16,4 +17,7 @@ int Consumable::getLevel(){
 
 int Consumable::getValue(){
 	return value;
+}
+string Consumable::getName() {
+    return name;
 }
