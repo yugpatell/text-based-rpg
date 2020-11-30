@@ -10,11 +10,12 @@ public:
 
     Troll(int characterlevel) {
         srand(time(NULL));
-    	hp = 2 * characterlevel + rand() % (5 * characterlevel / 4);
-	    attack = 2 * characterlevel + rand() % (5 * characterlevel / 4);
-	    defense = 4 * characterlevel + rand() % (5 * characterlevel / 4);
+    	hp = 1 * characterlevel + rand() % (5 * characterlevel / 4);
+	    attack = 1 * characterlevel + rand() % (5 * characterlevel / 4);
+	    defense = 2 * characterlevel + rand() % (5 * characterlevel / 4);
 	    level = abs(characterlevel - 3 + rand() % 6);
 	    giveExp = level * 10 * attack / defense;
+        name = "TROLL";
     }
 
     int attackChar(int charDefense) {

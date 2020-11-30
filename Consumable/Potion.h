@@ -5,12 +5,11 @@
 #include <string>
 
 class Potion : public Consumable {
-        private:
-                string name;
         public:
-                Potion() : Consumable(){ name = " ";}
-                Potion(int lvl, int rarity, string n) : Consumable(lvl, rarity){ name = n;}
-                string getName() { return name;}
+                Potion() : Consumable() {
+                }
+                Potion(int lvl, int rarity, string n) : Consumable(lvl, rarity, n) {
+                }
 };
 
 #endif //__POTION_H__
