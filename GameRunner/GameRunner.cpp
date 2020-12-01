@@ -6,7 +6,7 @@ string userName = "";
 
 GameRunner::GameRunner(){
 	numDays = 1;
-	area = ARCTIC;
+	area = FOREST;
 }
 
 GameRunner* GameRunner::getInstance(){
@@ -304,4 +304,3 @@ void GameRunner::characterOption(int option) {
     }
 
 }
-
