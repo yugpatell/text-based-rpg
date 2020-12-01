@@ -6,7 +6,6 @@
 
 int main() {
     FileReader* reader = new FileReader("FileReader/Rarity.txt");
-    reader->print();
     //GameRunner * newGame = newGame->getInstance();
     //newGame->startGame();
     return 0;

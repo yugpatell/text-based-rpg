@@ -28,12 +28,6 @@ class FileReader{
        }
     }
 
-    void print(){
-      for(string x: rarities){
-        cout << x << endl;
-      }
-    }
-
 };
 
 #endif //__FILE_READER__

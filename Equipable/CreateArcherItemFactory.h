@@ -5,16 +5,32 @@
 
 class CreateArcherItemFactory : public CreateEquipableFactory{
   public:
-    Armor CreateChestArmor(const Character c){
-
+    virtual Chainmail* CreateChestArmor(const Character c){
+      FileReader reader("..FileReader/Rarity.txt");
+      srand(time());
+      int randomVal = rand%reader.rarities.size());
+      string rarity = reader.rarities.at(rand%reader.rarities.size());
+      int lvl = abs(c.getLevel()-5 + rand % 11);
+      string name = "Lvl: " + lvl + " " + rarity + " Chainmail";
+      return new Chainmail(lvl, randomVal, name);
     }
 
-    Armor CreateLegArmor(const Character c){
-
+    virtual LeatherPants* CreateLegArmor(const Character c){
+      FileReader reader("..FileReader/Rarity.txt");
+      srand(time());
+      string rarity = reader.rarities.at(rand%reader.rarities.size());
+      int lvl = abs(c.getLevel()-5 + rand % 11);
+      string name = "Lvl: " + lvl + " " + rarity + " Leather Pants";
+      return new LeatherPants(lvl, randomVal, name);
     }
 
-    Weapon CreateWeapon(const Character c){
-
+    virtual Bow* CreateWeapon(const Character c){
+      FileReader reader("..FileReader/Rarity.txt");
+      srand(time());
+      string rarity = reader.rarities.at(rand%reader.rarities.size());
+      int lvl = abs(c.getLevel()-5 + rand % 11);
+      string name = "Lvl: " + lvl + " " + rarity + " Bow";
+      return new Bow(lvl, randomVal, name);
     }
 
 };

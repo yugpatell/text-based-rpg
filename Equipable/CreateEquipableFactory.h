@@ -5,18 +5,19 @@
 #include "Armor.h"
 #include "Weapon.h"
 #include <stdlib.h>
+#include <time>
 
 class CreateEquipableFactory{
   public:
-    virtual Armor CreateChestArmor(Character c) = 0;
-    virtual Armor CreateLegArmor(Character c) = 0;
-    virtual Weapon CreateWeapon(Character c) = 0;
+    virtual Armor* CreateChestArmor(Character c) = 0;
+    virtual Armor* CreateLegArmor(Character c) = 0;
+    virtual Weapon* CreateWeapon(Character c) = 0;
 
 };
 
 #endif // __CREATE_EQUIPABLE__
 
 
-//Armor* armor1 = CreateMageItemFactory()->CreateChestArmor();
-
+//Chestplate* armor1 = CreateKnightItemFactory()->CreateChestArmor();
+//
 //CreateEquipableFactory
