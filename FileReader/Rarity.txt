@@ -1,0 +1,7 @@
+Poor
+Bad
+Fair
+Good
+Great
+Epic
+Legendary
