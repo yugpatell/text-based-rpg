@@ -5,16 +5,32 @@
 
 class CreateKnightItemFactory : public CreateEquipableFactory{
   public:
-    virtual Armor CreateChestArmor(const Character c){
-
+    virtual Chestplate* CreateChestArmor(const Character c){
+      FileReader reader("..FileReader/Rarity.txt");
+      srand(time());
+      int randomVal = rand%reader.rarities.size());
+      string rarity = reader.rarities.at(rand%reader.rarities.size());
+      int lvl = abs(c.getLevel()-5 + rand % 11);
+      string name = "Lvl: " + lvl + " " + rarity + " Chestplate";
+      return new Chestplate(lvl, randomVal, name);
     }
 
-    virtual Armor CreateLegArmor(const Character c){
-
+    virtual ArmoredLeggings* CreateLegArmor(const Character c){
+      FileReader reader("..FileReader/Rarity.txt");
+      srand(time());
+      string rarity = reader.rarities.at(rand%reader.rarities.size());
+      int lvl = abs(c.getLevel()-5 + rand % 11);
+      string name = "Lvl: " + lvl + " " + rarity + " Armored Leggings";
+      return new ArmoredLeggings(lvl, randomVal, name);
     }
 
-    virtual Weapon CreateWeapon(const Character c){
-
+    virtual Sword* CreateWeapon(const Character c){
+      FileReader reader("..FileReader/Rarity.txt");
+      srand(time());
+      string rarity = reader.rarities.at(rand%reader.rarities.size());
+      int lvl = abs(c.getLevel()-5 + rand % 11);
+      string name = "Lvl: " + lvl + " " + rarity + " Sword";
+      return new Sword(lvl, randomVal, name);
     }
 
 };

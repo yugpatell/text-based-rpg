@@ -14,4 +14,3 @@ class Chestplate : public Armor {
 };
 
 #endif //__CHESTPLATE_H__
-

@@ -8,10 +8,9 @@ class LeatherPants : public Armor {
         private:
                 string name;
         public:
-                LeatherPants() : Armor(){ name = " ";}
+                LeatherPants() : Armor(){ name = " ";  isChestPiece = 1;}
                 LeatherPants(int lvl, int rarity, string n) : Armor(lvl, rarity, 2, 1){ name = n;}
                 string getName() { return name;}
 };
 
 #endif //__LEATHERPANTS_H__
-
