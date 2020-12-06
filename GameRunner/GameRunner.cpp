@@ -340,7 +340,7 @@ void GameRunner::heal() {
 void GameRunner::createCharacter() {
     cout << "Welcome! Please enter your name:";
     string name;
-    cin >> name;
+    getline(cin, name);
     userName = name;
     cout << name << ", here is a list of the three characters to play as." << endl;
     cout << "-------------------------------------------------------------------------------------------------------------------" << endl;
@@ -353,6 +353,7 @@ void GameRunner::createCharacter() {
     cin >> charNum;
     if (charNum < 1 || charNum > 3) {
         cout << "Restarting character selection due to invalid input" << endl;
+        cin.ignore();
         this->createCharacter();
     } else if (charNum == 1) {
         cout << "You have selected the ARCHER Character!" << endl;
