@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8)
-project(finalproject)
+project(text-based-rpg)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(finalproject main.cpp)
+add_executable(text-based-rpg main.cpp)
