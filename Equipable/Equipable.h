@@ -1,6 +1,6 @@
 #ifndef __EQUIPABLE_H__
 #define __EQUIPABLE_H__
-	
+
 class Equipable {
 	protected:
 		int level;
@@ -12,6 +12,15 @@ class Equipable {
 		int getLevel();
 		int getValue(); 
 		int getRole();
+		virtual bool isArmor() {
+		    return true;
+		}
+		virtual string getName() {
+		    return "";
+		}
+		virtual bool getChestOrPants() {
+		    return 0;
+		}
 };	
 
 #endif //__EQUIPABLE_H__

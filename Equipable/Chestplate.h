@@ -10,7 +10,7 @@ class Chestplate : public Armor {
         public:
                 Chestplate() : Armor(){ name = " ";}
                 Chestplate(int lvl, int rarity, string n) : Armor(lvl, rarity, 0, 0){ name = n;}
-                string getName() { return name;}
+                virtual string getName() { return name;}
 };
 
 #endif //__CHESTPLATE_H__

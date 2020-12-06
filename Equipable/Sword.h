@@ -10,7 +10,8 @@ class Sword : public Weapon {
         public:
                 Sword() : Weapon(){ name = " ";}
                 Sword(int lvl, int rarity, string n) : Weapon(lvl, rarity, 0){ name = n;}
-                string getName() { return name;}
+                virtual string getName() { return name;}
+
 };
 
 #endif //__SWORD_H__

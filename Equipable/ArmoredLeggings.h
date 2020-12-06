@@ -10,7 +10,7 @@ class ArmoredLeggings : public Armor {
         public:
                 ArmoredLeggings() : Armor(){ name = " "; isChestPiece = 1;}
                 ArmoredLeggings(int lvl, int rarity, string n) : Armor(lvl, rarity, 0, 1){ name = n;}
-                string getName() { return name;}
+                virtual string getName() { return name;}
 };
 
 #endif //__ARMOREDLEGGINGS_H__

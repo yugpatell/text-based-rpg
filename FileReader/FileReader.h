@@ -9,9 +9,8 @@
 using namespace std;
 
 class FileReader{
-  private:
-    vector<string> rarities;
   public:
+    vector<string> rarities;
     FileReader(){};
 
     FileReader(string fileName){
@@ -27,11 +26,10 @@ class FileReader{
         cout << "Unable to open file" << endl;
        }
     }
+    int size() const {
+        return rarities.size();
+    }
 
 };
 
 #endif //__FILE_READER__
-
-//while (file >> word){
-//  rarities.push(word);
-//}

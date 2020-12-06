@@ -6,6 +6,7 @@
 #include "../AttackStrategy/AttackStrategy.h"
 #include "../Mob/mob.h"
 #include "../Consumable/Consumable.cpp"
+#include "../Equipable/equipable.cpp"
 
 using namespace std;
 
@@ -23,10 +24,17 @@ class Character {
         int currXP;
         characterType role;
         vector<Consumable *> consumables;
+        vector<Equipable *> inventory;
+        Equipable * chestplate;
+        Equipable * leggings;
+        Equipable * weapon;
 
     public:
         Character() {
             attackMethod = nullptr;
+            chestplate = nullptr;
+            leggings = nullptr;
+            weapon = nullptr;
             name = "";
             int maxHP = 10;
             int currHP = 10;
@@ -38,6 +46,13 @@ class Character {
 
         void setattackMethod(AttackStrategy * attackMethod) {
             this->attackMethod = attackMethod;
+        }
+        void setDefense(int def) {
+            defense += def;
+        }
+
+        void setAttack(int attack) {
+            atk += attack;
         }
 
         virtual int attack(Mob * currMob) = 0;
@@ -62,8 +77,11 @@ class Character {
         int getcurrXP() const {
             return currXP;
         }
+        characterType getcharType() const {
+            return role;
+        }
         void setcurrHP(int additionalHP) {
-            if (additionalHP + currHP > this->getMaxHP()) {
+            if (additionalHP + currHP < this->getMaxHP()) {
                 currHP += additionalHP;
             }
             else {
@@ -82,15 +100,60 @@ class Character {
         void addConsumables(Consumable * consum) {
             consumables.push_back(consum);
         }
+
         void removeConsumablesAt(int index) {
-            consumables.erase(consumables.begin() + index);
+            if (index < this->equipmentSize()) {
+                consumables.erase(consumables.begin() + index);
+            }
         }
+
         int consumablesSize() {
             return consumables.size();
         }
+
         Consumable * consumablesAt(int index) {
-            return consumables.at(index);
+            if (this->consumablesSize()) {
+                return consumables.at(index);
+            }
+            return nullptr;
         }
+
+        void addEquipment(Equipable * equip) {
+            inventory.push_back(equip);
+        }
+        void removeEquipmentAt(int index) {
+            if (index < this->equipmentSize()) {
+                inventory.erase(inventory.begin() + index);
+            }
+        }
+        int equipmentSize() {
+            return inventory.size();
+        }
+        Equipable * equipmentAt(int index) {
+            if (index < this->equipmentSize()) {
+                return inventory.at(index);
+            }
+            return nullptr;
+        }
+        void setChest(Equipable * chest) {
+            chestplate = chest;
+        }
+        void setLeggings(Equipable * leg) {
+            leggings = leg;
+        }
+        void setWeapon(Equipable * wep) {
+            weapon = wep;
+        }
+        Equipable * getChestplate() {
+            return chestplate;
+        }
+        Equipable * getLeggings() {
+            return leggings;
+        }
+        Equipable * getWeapon() {
+            return weapon;
+        }
+
 
 };
 
