@@ -44,7 +44,7 @@ void Knight::levelUp() {
         defense += 5;
         level += 1;
         currXP = currXP - maxXP;
-	maxXP += 10;
+	maxXP += 25;
     }
 }
 

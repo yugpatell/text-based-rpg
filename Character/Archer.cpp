@@ -44,6 +44,6 @@ void Archer::levelUp() {
         defense += 2;
         level += 1;
         currXP = currXP - maxXP;
-	maxXP += 10;
+	maxXP += 25;
     }
 }
