@@ -57,6 +57,10 @@ The output will look like this when the game starts and it will prompt the user 
  
      $ make
      
+ > Run the game
+     
+     $ ./text-based-rpg
+     
  ## Testing
  > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
  
