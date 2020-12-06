@@ -3,226 +3,338 @@
 #include <time.h>       /* time */
 
 string userName = "";
+bool hasRested = false;
 
-GameRunner::GameRunner(){
-	numDays = 1;
-	area = FOREST;
+GameRunner::GameRunner() {
+    numDays = 1;
+    area = FOREST;
 }
 
-GameRunner* GameRunner::getInstance(){
-	if (gameInstance == nullptr){
-		gameInstance = new GameRunner();
-	}
-	return gameInstance;
+areaType GameRunner::getCurrentLocation() {
+    return area;
+}
+
+GameRunner * GameRunner::getInstance() {
+    if (gameInstance == nullptr) {
+        gameInstance = new GameRunner();
+    }
+    return gameInstance;
 }
 
 void GameRunner::startGame() {
     createCharacter();
-    Consumable * test = new Potion(1, 1, "test");
-    currCharacter->addConsumables(test);
-    while(currCharacter->getcurrHP() > 0) {
-        cout << string(35, '\n');
+    while (currCharacter -> getcurrHP() > 0) {
+        cout << string(15, '\n');
         characterOption(printMenu());
     }
 }
 
 void GameRunner::fight() {
     if (area == FOREST) {
-        Mob * newMob = new Wolf(currCharacter->getDefense());
+        Mob * newMob = new Wolf(currCharacter -> getLevel());
         startFight(currCharacter, newMob);
-    }
-    else if (area == ARCTIC) {
-        Mob * newMob = new Yeti(currCharacter->getDefense());
+    } else if (area == ARCTIC) {
+        Mob * newMob = new Yeti(currCharacter -> getLevel());
         startFight(currCharacter, newMob);
-    }
-    else if (area == DESERT) {
-        Mob * newMob = new Drake(currCharacter->getDefense());
+    } else if (area == DESERT) {
+        Mob * newMob = new Drake(currCharacter -> getLevel());
         startFight(currCharacter, newMob);
-    }
-    else {
-        Mob * newMob = new Troll(currCharacter->getDefense());
+    } else {
+        Mob * newMob = new Troll(currCharacter -> getLevel());
         startFight(currCharacter, newMob);
     }
 }
 
 void GameRunner::startFight(Character * currCharacter, Mob * newMob) {
-    cout << string(35, '\n');
-    system("Color 5");
-    cout << "You have encountered a level " << newMob->get_mob_lvl() << " " << newMob->getName() << " with " << newMob->get_mob_hp() << "HP !" << endl;
-    while (currCharacter->getcurrHP() > 0) {
+    cout << string(15, '\n');
+    cout << "You have encountered a level " << newMob -> get_mob_lvl() << " " << newMob -> getName() << " with " << newMob -> get_mob_hp() << "HP !" << endl;
+    int mobMaxHP = newMob -> get_mob_hp();
+    while (currCharacter -> getcurrHP() > 0) {
+        cout << string(5, '\n');
+        cout << userName << "'s HP: " << currCharacter -> getcurrHP() << "/" << currCharacter -> getMaxHP() << ", " << newMob -> getName() << "'s HP: " << newMob -> get_mob_hp() << "/" << mobMaxHP << endl;
         int option = fightMenu();
         if (option == 1) {
-            newMob->set_mob_hp(currCharacter->attack(newMob));
-            system("Color 5");
-            cout << userName << " attacks the " << newMob->getName() << ", dealing " << currCharacter->attack(newMob) << " damage!" <<  endl;
-            currCharacter->setcurrHPAttack(newMob->attackChar(currCharacter->getDefense()));
-            cout << newMob->getName() << " attacks " << userName << ", dealing " << newMob->attackChar(currCharacter->getDefense()) << " damage!" << endl;
-            system("Color 7");
-        }
-        else if (option == 2) {
-            if (currCharacter->consumablesSize() > 0) {
+            newMob -> set_mob_hp(currCharacter -> attack(newMob));
+            cout << endl << userName << " attacks the " << newMob -> getName() << ", dealing " << currCharacter -> attack(newMob) << " damage!" << endl;
+            if (newMob -> get_mob_hp() > 0) {
+                currCharacter -> setcurrHPAttack(newMob -> attackChar(currCharacter -> getDefense()));
+                cout << newMob -> getName() << " attacks " << userName << ", dealing " << newMob -> attackChar(currCharacter -> getDefense()) << " damage!" << endl;
+            }
+        } else if (option == 2) {
+            if (currCharacter -> consumablesSize() > 0) {
                 printConsumables();
                 int option;
                 cout << "Select one of the options by the Potion number: ";
                 cin >> option;
-                currCharacter->setcurrHP(currCharacter->consumablesAt(option - 1)->getValue());
-                currCharacter->removeConsumablesAt(option - 1);
+                currCharacter -> setcurrHP(currCharacter -> consumablesAt(option - 1) -> getValue());
+                currCharacter -> removeConsumablesAt(option - 1);
+            } else {
+                cout << "Sorry! You DONT have any consumables!";
             }
-            else {
-                cerr << "Sorry! You DONT have any consumables!" << endl;
-            }
-        }
-        else if (option == 3) {
+        } else if (option == 3) {
             cout << "You have decided to flee!" << endl;
             return;
         }
 
-        if (currCharacter->getcurrHP() <= 0) {
-            cerr << "YOUR CHARACTER HAS DIED!" << endl;
+        if (currCharacter -> getcurrHP() <= 0) {
+            cout << "YOUR CHARACTER HAS DIED!";
         }
-        else if (newMob->get_mob_hp() <= 0) {
-            system("Color 5");
-            cout << "You have killed the " << newMob->getName() << " and received some loot!" << endl;
-            cout << userName << " gained " << newMob->get_mob_exp() << " XP!";
-            currCharacter->setcurrXP(newMob->get_mob_exp());
+        if (newMob -> get_mob_hp() <= 0) {
+            cout << "You have killed the " << newMob -> getName() << " and received some loot!" << endl;
+            cout << userName << " gained " << newMob -> get_mob_exp() << " XP!" << endl;
+            currCharacter -> setcurrXP(newMob -> get_mob_exp());
+            currCharacter -> levelUp();
+            giveDrops();
             numDays++;
+            hasRested = false;
+            break;
         }
     }
-    system("Color 7");
 }
+void GameRunner::giveDrops() {
+    if (currCharacter -> getcharType() == MAGE) {
+        CreateEquipableFactory * loot = new CreateMageItemFactory();
+        this -> lootonLoc(loot, this -> getCurrentLocation());
+    } else if (currCharacter -> getcharType() == ARCHER) {
+        CreateEquipableFactory * loot = new CreateArcherItemFactory();
+        this -> lootonLoc(loot, this -> getCurrentLocation());
+
+    } else {
+        CreateEquipableFactory * loot = new CreateKnightItemFactory();
+        this -> lootonLoc(loot, this -> getCurrentLocation());
+    }
+}
+
+void GameRunner::lootonLoc(CreateEquipableFactory * loot, areaType currArea) {
+    if (currArea == FOREST) {
+        currCharacter -> addEquipment(loot -> CreateChestArmor(currCharacter));
+    } else if (currArea == ARCTIC) {
+        currCharacter -> addEquipment(loot -> CreateWeapon(currCharacter));
+    } else if (currArea == DESERT) {
+        currCharacter -> addEquipment(loot -> CreateLegArmor(currCharacter));
+    } else {
+        FileReader reader("../FileReader/Rarity.txt");
+        srand(time(NULL));
+        int randomVal = (rand() % reader.rarities.size()) + 1;
+        string rarity = reader.rarities.at(randomVal - 1);
+        int lvl = abs(currCharacter->getLevel() - 6 + rand() % 11) + 1;
+        currCharacter -> addConsumables(new Potion(lvl, randomVal, rarity));
+    }
+}
+
 int GameRunner::fightMenu() {
-    system("Color 8");
     cout << "--------------------------------------------------" << endl;
-    system("Color B");
     cout << "1) ATTACK               3) RUN" << endl;
     cout << "2) USE HEAL ITEM " << endl;
-    system("Color 8");
     cout << "--------------------------------------------------" << endl;
-
-    system("Color 7");
     cout << "Select one of the options by entering 1-3 inputs: ";
     int input;
     cin >> input;
 
     if (input < 1 || input > 3) {
-        cerr << "INVALID INPUT DETECTED, REPROMPTING THE MENU!" << endl;
-        this->printMenu();
+        cout << "INVALID INPUT DETECTED, REPROMPTING THE MENU!";
+        this -> printMenu();
     }
     return input;
 }
 void GameRunner::printConsumables() {
-    cout << string(35, '\n');
-    system("Color 8");
-    cout << "--------------------------------------------------" << endl;
-    for (unsigned int i = 0; i < currCharacter->consumablesSize(); i++) {
-        system("Color B");
-        cout << "POTION #" << i + 1 << endl;
-        cout << "HEAL VALUE - " << currCharacter->consumablesAt(i)->getValue() << endl;
-
-        if (i > 1) {
-            system("Color 8");
-            cout << "--------------------------------------------------" << endl;
-        }
+    cout << string(15, '\n');
+    if (currCharacter -> consumablesSize() > 0) {
+        cout << "--------------------------------------------------" << endl;
+    } else {
+        cout << endl << "EMPTY CONSUMABLES!" << endl;
     }
-    system("Color 8");
-    cout << "--------------------------------------------------" << endl;
-    system("Color 7");
+    for (unsigned int i = 0; i < currCharacter -> consumablesSize(); i++) {
+        cout << "POTION #" << i + 1 << endl;
+        cout << "NAME - " << currCharacter -> consumablesAt(i) -> getName()  << " Potion" << endl;
+        cout << "HEAL VALUE - " << currCharacter -> consumablesAt(i) -> getValue() << endl;
+        cout << "--------------------------------------------------" << endl;
+    }
 }
 
 void GameRunner::explore() {
-    system("Color D");
-    cout << string(35, '\n');
+    cout << string(15, '\n');
     cout << userName << ", your current location is: ";
     printArea();
     int choice = exploreMenu();
     if (choice == 1) {
-       area = FOREST;
+        area = FOREST;
+    } else if (choice == 2) {
+        area = CAVE;
+    } else if (choice == 3) {
+        area = DESERT;
+    } else {
+        area = ARCTIC;
     }
-    else if (choice == 2) {
-       area = CAVE;
-       system("Color D");
-    }
-    else if (choice == 3) {
-       area = DESERT;
-       system("Color D");
-    }
-    else {
-       area = ARCTIC;
-    }
-    system("Color D");
     cout << userName << ", your new location is: ";
     printArea();
 }
 
 int GameRunner::exploreMenu() {
-    system("Color 8");
     cout << "--------------------------------------------------" << endl;
-    system("Color B");
     cout << "1) FOREST             3) DESERT" << endl;
     cout << "2) CAVE               4) ARCTIC " << endl;
-    system("Color 8");
     cout << "--------------------------------------------------" << endl;
 
-    system("Color 7");
     cout << "Select one of the options by entering 1-4 inputs: ";
     int input;
     cin >> input;
 
     if (input < 1 || input > 4) {
-        cerr << "INVALID INPUT DETECTED, REPROMPTING THE MENU!" << endl;
-        this->exploreMenu();
+        cout << "INVALID INPUT DETECTED, REPROMPTING THE MENU!";
+        this -> exploreMenu();
     }
     return input;
 }
 void GameRunner::printArea() {
     if (area == 0) {
         cout << "FOREST" << endl;
-    }
-    else if (area == 1) {
+    } else if (area == 1) {
         cout << "ARCTIC" << endl;
-    }
-    else if (area == 2) {
+    } else if (area == 2) {
         cout << "DESERT" << endl;
-    }
-    else {
+    } else {
         cout << "CAVE" << endl;
     }
-    system("Color 7");
+}
+void GameRunner::printInventory() {
+    cout << string(15, '\n');
+    if (currCharacter -> equipmentSize() > 0) {
+        cout << "--------------------------------------------------" << endl;
+    } else {
+        cout << endl << "EMPTY INVENTORY!" << endl;
+    }
+    for (unsigned int i = 0; i < currCharacter -> equipmentSize(); i++) {
+        cout << "ITEM #" << i + 1 << endl;
+        cout << "NAME - " << currCharacter -> equipmentAt(i) -> getName() << endl;
+        if (currCharacter -> equipmentAt(i) -> isArmor()) {
+            cout << "ARMOR VALUE - " << currCharacter -> equipmentAt(i) -> getValue() << endl;
+        } else {
+            cout << "WEAPON DMG - " << currCharacter -> equipmentAt(i) -> getValue() << endl;
+        }
+        cout << "--------------------------------------------------" << endl;
+    }
 }
 
 void GameRunner::useInventory() {
-    system("Color 8");
     cout << "--------------------------------------------------" << endl;
-    system("Color B");
     cout << "1) EQUIPMENT             2) CONSUMABLES" << endl;
-    system("Color 8");
+    cout << "3) CHANGE EQUIPMENT      4) CURRENT EQUIPMENT" << endl;
     cout << "--------------------------------------------------" << endl;
 
-    system("Color 7");
     cout << "Select one of the options by entering 1-2 inputs: ";
     int input;
     cin >> input;
 
     if (input == 1) {
-
-    }
-    else if (input == 2) {
+        printInventory();
+    } else if (input == 2) {
         printConsumables();
-    }
-    else {
-        cerr << "INVALID INPUT DETECTED, REPROMPTING THE MENU!" << endl;
-        this->useInventory();
+    } else if (input == 3) {
+        changeEquipment();
+    } else if (input == 4) {
+        printCurrentEquipment();
+    } else {
+        cout << "INVALID INPUT DETECTED, REPROMPTING THE MENU!";
+        this -> useInventory();
     }
 }
 
-void GameRunner::heal() {
-    if (currCharacter->getcurrHP() < currCharacter->getMaxHP()) {
-        currCharacter->setcurrHP(currCharacter->getMaxHP() * 0.30);
-        system("Color 5");
-        cout << userName << ", your current HP is now at: " << currCharacter->getcurrHP() << "/" << currCharacter->getMaxHP() << endl;
-        system("Color 7");
+void GameRunner::changeEquipment() {
+    printInventory();
+    cout << "What item number would you like to equip";
+    int choice = 0;
+    cin >> choice;
+    int compare = choice;
+    while (choice != -1) {
+        if (compare - 1 > currCharacter -> equipmentSize()) {
+            cout << "INVALID ITEM NUMBER, PLEASE TRY AGAIN!" << endl;
+            this -> changeEquipment();
+        }
+
+        if (currCharacter -> equipmentAt(choice - 1) -> isArmor()) {
+            if (currCharacter -> equipmentAt(choice - 1) -> getChestOrPants()) {
+                if (currCharacter -> getLeggings() == nullptr) {
+                    currCharacter -> setLeggings(currCharacter -> equipmentAt(choice - 1));
+                    currCharacter -> removeEquipmentAt(choice - 1);
+                    currCharacter -> setDefense(currCharacter -> getLeggings() -> getValue());
+                    cout << "You have equipped: " << currCharacter -> getLeggings() -> getName() << endl;
+                } else {
+                    currCharacter -> setDefense(currCharacter -> getLeggings() -> getValue() * -1);
+                    currCharacter -> addEquipment(currCharacter -> getLeggings());
+                    currCharacter -> setLeggings(currCharacter -> equipmentAt(choice - 1));
+                    currCharacter -> removeEquipmentAt(choice - 1);
+                    currCharacter -> setDefense(currCharacter -> getLeggings() -> getValue());
+                    cout << "You have equipped: " << currCharacter -> getLeggings() -> getName() << endl;
+                }
+            } else {
+                if (currCharacter -> getChestplate() == nullptr) {
+                    currCharacter -> setChest(currCharacter -> equipmentAt(choice - 1));
+                    currCharacter -> removeEquipmentAt(choice - 1);
+                    currCharacter -> setDefense(currCharacter -> getChestplate() -> getValue());
+                    cout << "You have equipped: " << currCharacter -> getChestplate() -> getName() << endl;
+                } else {
+                    currCharacter -> setDefense(currCharacter -> getChestplate() -> getValue() * -1);
+                    currCharacter -> addEquipment(currCharacter -> getChestplate());
+                    currCharacter -> setChest(currCharacter -> equipmentAt(choice - 1));
+                    currCharacter -> removeEquipmentAt(choice - 1);
+                    currCharacter -> setDefense(currCharacter -> getChestplate() -> getValue());
+                    cout << "You have equipped: " << currCharacter -> getChestplate() -> getName() << endl;
+                }
+            }
+        } else {
+            if (currCharacter -> getWeapon() == nullptr) {
+                currCharacter -> setWeapon(currCharacter -> equipmentAt(choice - 1));
+                currCharacter -> removeEquipmentAt(choice - 1);
+                currCharacter -> setAttack(currCharacter -> getWeapon() -> getValue());
+                cout << "You have equipped: " << currCharacter -> getWeapon() -> getName() << endl;
+            } else {
+                currCharacter -> setAttack(currCharacter -> getWeapon() -> getValue() * -1);
+                currCharacter -> addEquipment(currCharacter -> getWeapon());
+                currCharacter -> setWeapon(currCharacter -> equipmentAt(choice - 1));
+                currCharacter -> removeEquipmentAt(choice - 1);
+                currCharacter -> setAttack(currCharacter -> getWeapon() -> getValue());
+                cout << "You have equipped: " << currCharacter -> getWeapon() -> getName() << endl;
+            }
+        }
+        cout << string(15, '\n');
+        printInventory();
+        cout << "What item number would you like to equip (-1 to exit)";
+        cin >> choice;
     }
-    cerr << userName << ", you are already at MAX HP: " << currCharacter->getcurrHP() << "/" << currCharacter->getMaxHP() << endl;
+
+    printStats();
+}
+
+void GameRunner::printCurrentEquipment() {
+    if (currCharacter -> getChestplate() != nullptr) {
+        cout << currCharacter -> getChestplate() -> getName() << endl;
+        cout << "ARMOR - " << currCharacter -> getChestplate() -> getValue() << endl;
+    } else {
+        cout << "You DONT have a chestplate equipped!" << endl;
+    }
+    if (currCharacter -> getLeggings() != nullptr) {
+        cout << currCharacter -> getLeggings() -> getName() << endl;
+        cout << "ARMOR - " << currCharacter -> getLeggings() -> getValue() << endl;
+    } else {
+        cout << "You DONT have leggings equipped!" << endl;
+    }
+    if (currCharacter -> getWeapon() != nullptr) {
+        cout << currCharacter -> getWeapon() -> getName() << endl;
+        cout << "DMG - " << currCharacter -> getWeapon() -> getValue() << endl;
+    } else {
+        cout << "You DONT have a weapon equipped!" << endl;
+    }
+
+}
+
+void GameRunner::heal() {
+    if (currCharacter -> getcurrHP() < currCharacter -> getMaxHP()) {
+        currCharacter -> setcurrHP((currCharacter -> getMaxHP() * 3) / 10);
+        cout << userName << ", your current HP is now at: " << currCharacter -> getcurrHP() << "/" << currCharacter -> getMaxHP() << endl;
+        return;
+    }
+    cout << userName << ", you are already at MAX HP: " << currCharacter -> getcurrHP() << "/" << currCharacter -> getMaxHP();
 }
 
 void GameRunner::createCharacter() {
@@ -231,59 +343,44 @@ void GameRunner::createCharacter() {
     cin >> name;
     userName = name;
     cout << name << ", here is a list of the three characters to play as." << endl;
-    system("Color 2");
     cout << "-------------------------------------------------------------------------------------------------------------------" << endl;
-    system("Color B");
     cout << "1) ARCHER - The knight fell from royalty after being betrayed by the King. Now left with nowhere to go, the Knight\nstruggles to survive in the wilderness. The knight specializes in defense." << endl;
     cout << "2) MAGE - The archer ascends from poor beginnings. As he grew up, he hunted to provide for his family. After\nmonsters plagued the earth and ravaged his village, he promised to avenge his family. The archer specializes in attack." << endl;
     cout << "3) KNIGHT - The mage has mystical origins, coming from an unknown dimension. Seeking to master his skills, he travels\nthe realm, practicing his abstract sorcery. The mage specializes in HP." << endl;
-    system("Color 2");
     cout << "-------------------------------------------------------------------------------------------------------------------" << endl;
-    system("Color 7");
-    cout << "Enter the corresponding number of the character you wish to play as:";
+    cout << "Enter the corresponding number of the character you wish to play as: ";
     int charNum;
     cin >> charNum;
     if (charNum < 1 || charNum > 3) {
-        cerr << "Restarting character selection due to invalid input" << endl;
-        this->createCharacter();
-    }
-    else if (charNum == 1) {
-        system("Color A");
+        cout << "Restarting character selection due to invalid input" << endl;
+        this -> createCharacter();
+    } else if (charNum == 1) {
         cout << "You have selected the ARCHER Character!" << endl;
         currCharacter = new Archer(name, ARCHER);
-    }
-    else if (charNum == 2) {
-        system("Color A");
+    } else if (charNum == 2) {
         cout << "You have selected the MAGE Character!" << endl;
         currCharacter = new Mage(name, MAGE);
-    }
-    else {
-        system("Color A");
+    } else {
         cout << "You have selected the KNIGHT Character!" << endl;
         currCharacter = new Knight(name, KNIGHT);
     }
-    system("Color 7");
 }
 
 int GameRunner::printMenu() {
-    system("Color 4");
     cout << "Days Counter: " << numDays << endl;
-    system("Color 8");
+    cout << userName << "'s LVL: " << currCharacter -> getLevel() << ", HP: " << currCharacter -> getcurrHP() << "/" << currCharacter -> getMaxHP() << ", XP: " << currCharacter -> getcurrXP() << "/" << 100 << endl;
     cout << "--------------------------------------------------" << endl;
-    system("Color B");
     cout << "1) FIGHT               3) ACCESS INVENTORY" << endl;
     cout << "2) EXPLORE             4) REST" << endl;
-    system("Color 8");
     cout << "--------------------------------------------------" << endl;
 
-    system("Color 7");
     cout << "Select one of the options by entering 1-4 inputs: ";
     int input;
     cin >> input;
 
     if (input < 1 || input > 4) {
-        cerr << "INVALID INPUT DETECTED, REPROMPTING THE MENU!" << endl;
-        this->printMenu();
+        cout << "INVALID INPUT DETECTED, REPROMPTING THE MENU!" << endl;
+        this -> printMenu();
     }
     return input;
 
@@ -292,15 +389,28 @@ int GameRunner::printMenu() {
 void GameRunner::characterOption(int option) {
     if (option == 1) {
         fight();
-    }
-    else if (option == 2) {
+    } else if (option == 2) {
         explore();
-    }
-    else if (option == 3) {
+    } else if (option == 3) {
         useInventory();
+    } else {
+        if (!hasRested) {
+            heal();
+            if (currCharacter->getLevel() >= 15) {
+                hasRested = true;
+            }
+        }
+        else {
+            cout << "YOU HAVE ALREADY RESTED TODAY!" << endl;
+        }
     }
-    else {
-        heal();
-    }
+}
 
+void GameRunner::printStats() {
+    if (currCharacter -> getLeggings() != nullptr || currCharacter -> getChestplate() != nullptr) {
+        cout << "CURRENT DEFENSE - " << currCharacter -> getDefense() << endl;
+    }
+    if (currCharacter -> getWeapon() != nullptr) {
+        cout << "CURRENT ATTACK - " << currCharacter -> getAtk() << endl;
+    }
 }

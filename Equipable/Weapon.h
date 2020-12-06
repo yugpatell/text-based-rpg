@@ -9,6 +9,9 @@ class Weapon : public Equipable {
 	public:
 		Weapon() : Equipable() {};
 		Weapon(int lvl, int rarity, int role) : Equipable(lvl, rarity, role) {};
+		virtual bool isArmor() {
+		    return false;
+		}
 };
 
 #endif //__WEAPON_H__

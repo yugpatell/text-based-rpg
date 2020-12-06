@@ -50,7 +50,7 @@ public:
 	    return giveExp;
     }
 
-    int set_mob_hp(int value) {
+    void set_mob_hp(int value) {
         hp -= value;
     }
 

@@ -10,7 +10,7 @@ class LeatherPants : public Armor {
         public:
                 LeatherPants() : Armor(){ name = " ";  isChestPiece = 1;}
                 LeatherPants(int lvl, int rarity, string n) : Armor(lvl, rarity, 2, 1){ name = n;}
-                string getName() { return name;}
+                virtual string getName() { return name;}
 };
 
 #endif //__LEATHERPANTS_H__

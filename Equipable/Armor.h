@@ -4,7 +4,7 @@
 #include "Equipable.h"
 
 class Armor : public Equipable{
-	private:
+	protected:
 		bool isChestPiece = 0; //0 = chest, 1 = pants
 	public:
 		Armor(): Equipable(){ isChestPiece = 0;}

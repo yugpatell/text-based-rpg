@@ -10,7 +10,7 @@ class Robe : public Armor {
         public:
                 Robe() : Armor(){ name = " ";}
                 Robe(int lvl, int rarity, string n) : Armor(lvl, rarity, 1, 0){ name = n;}
-                string getName() { return name;}
+                virtual string getName() { return name;}
 };
 
 #endif //__ROBE_H__

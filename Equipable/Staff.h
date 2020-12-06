@@ -10,7 +10,7 @@ class Staff : public Weapon {
         public:
                 Staff() : Weapon(){ name = " ";}
                 Staff(int lvl, int rarity, string n) : Weapon(lvl, rarity, 1){ name = n;}
-                string getName() { return name;}
+                virtual string getName() { return name;}
 };
 
 #endif //__STAFF_H__

@@ -6,6 +6,9 @@ using namespace std;
 
 Mage::Mage(string name, characterType role) {
     attackMethod = new MageAttack();
+    chestplate = nullptr;
+    leggings = nullptr;
+    weapon = nullptr;
     this->name = name;
     this->role = role;
     maxHP = 10;
@@ -32,10 +35,13 @@ int Mage::attack(Mob * currMob) {
 }
 
 void Mage::levelUp() {
-    maxHP += 5;
-    currHP +=5;
-    atk += 3;
-    defense += 2;
-    level += 1;
-    currXP = 0;
+    while (currXP >= 100) {
+        cout << "You have lvled up!" << endl;
+        maxHP += 5;
+        currHP += 5;
+        atk += 3;
+        defense += 2;
+        level += 1;
+        currXP = currXP - 100;
+    }
 }

@@ -6,6 +6,9 @@ using namespace std;
 
 Knight::Knight(string name, characterType role) {
     attackMethod = new KnightAttack();
+    chestplate = nullptr;
+    leggings = nullptr;
+    weapon = nullptr;
     this->name = name;
     this->role = role;
     maxHP = 10;
@@ -32,11 +35,14 @@ int Knight::attack(Mob * currMob) {
 }
 
 void Knight::levelUp() {
-    maxHP += 3;
-    currHP += 3;
-    atk += 2;
-    defense += 5;
-    level += 1;
-    currXP = 0;
+    while (currXP >= 100) {
+        cout << "You have lvled up!" << endl;
+        maxHP += 3;
+        currHP += 3;
+        atk += 2;
+        defense += 5;
+        level += 1;
+        currXP = currXP - 100;
+    }
 }
 
