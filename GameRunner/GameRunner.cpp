@@ -80,7 +80,7 @@ void GameRunner::startFight(Character * currCharacter, Mob * newMob) {
         }
 
         if (currCharacter->getcurrHP() <= 0) {
-            cout << "\033[1;31mYOUR CHARACTER HAS DIED!";
+            cout << "\033[1;31mYOUR CHARACTER HAS DIED!\033[0m" << endl;
         }
         if (newMob->get_mob_hp() <= 0) {
             cout << "\033[1;33mYou have killed the " << newMob->getName() << " and received some loot!\033[0m" << endl;
