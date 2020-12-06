@@ -357,6 +357,7 @@ void GameRunner::createCharacter() {
     cin >> charNum;
     if (charNum < 1 || charNum > 3) {
         cout << "\033[1;31mRestarting character selection due to invalid input\033[0m\n" << endl;
+        cin.clear();
         this->createCharacter();
     } else if (charNum == 1) {
         cout << "\033[1;35mYou have selected the ARCHER Character!\033[0m\n" << endl;
