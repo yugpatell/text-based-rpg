@@ -47,41 +47,41 @@ void GameRunner::fight() {
 
 void GameRunner::startFight(Character * currCharacter, Mob * newMob) {
     cout << string(15, '\n');
-    cout << "You have encountered a level " << newMob->get_mob_lvl() << " " << newMob->getName() << " with " << newMob->get_mob_hp() << "HP !" << endl;
+    cout << "\033[1;35mYou have encountered a level " << newMob->get_mob_lvl() << " " << newMob->getName() << " with " << newMob->get_mob_hp() << "HP !\033[0m\n" << endl;
     int mobMaxHP = newMob->get_mob_hp();
     while (currCharacter->getcurrHP() > 0) {
         cout << string(5, '\n');
-        cout << userName << "'s HP: " << currCharacter->getcurrHP() << "/" << currCharacter->getMaxHP() << ", " << newMob->getName() << "'s HP: " << newMob->get_mob_hp() << "/" << mobMaxHP << endl;
+        cout << "\033[1;33muserName << "'s HP: " << currCharacter->getcurrHP() << "/" << currCharacter->getMaxHP() << ", " << newMob->getName() << "'s HP: " << newMob->get_mob_hp() << "/" << mobMaxHP << "\033[0m\n" << endl;
         int option = fightMenu();
         if (option == 1) {
             newMob->set_mob_hp(currCharacter->attack(newMob));
-            cout << endl << userName << " attacks the " << newMob->getName() << ", dealing " << currCharacter->attack(newMob) << " damage!" << endl;
+            cout << endl << "\033[1;35m" << userName << " attacks the " << newMob->getName() << ", dealing " << currCharacter->attack(newMob) << " damage!\033[0m\n" << endl;
             if (newMob->get_mob_hp() > 0) {
                 currCharacter->setcurrHPAttack(newMob->attackChar(currCharacter->getDefense()));
-                cout << newMob->getName() << " attacks " << userName << ", dealing " << newMob->attackChar(currCharacter->getDefense()) << " damage!" << endl;
+                cout << "\033[1;35m" << newMob->getName() << " attacks " << userName << ", dealing " << newMob->attackChar(currCharacter->getDefense()) << " damage!\033[0m\n" << endl;
             }
         } else if (option == 2) {
             if (currCharacter->consumablesSize() > 0) {
                 printConsumables();
                 int option;
-                cout << "Select one of the options by the Potion number: ";
+                cout << "\033[1;36mSelect one of the options by the Potion number:\033[0m\n ";
                 cin >> option;
                 currCharacter->setcurrHP(currCharacter->consumablesAt(option - 1)->getValue());
                 currCharacter->removeConsumablesAt(option - 1);
             } else {
-                cout << "Sorry! You DONT have any consumables!";
+                cout << "\033[1;31mYou DONT have any consumables!";
             }
         } else if (option == 3) {
-            cout << "You have decided to flee!" << endl;
+            cout << "\033[1;30mYou have decided to flee!\033[0m\n" << endl;
             return;
         }
 
         if (currCharacter->getcurrHP() <= 0) {
-            cout << "YOUR CHARACTER HAS DIED!";
+            cout << "\033[1;31mYOUR CHARACTER HAS DIED!";
         }
         if (newMob->get_mob_hp() <= 0) {
-            cout << "You have killed the " << newMob->getName() << " and received some loot!" << endl;
-            cout << userName << " gained " << newMob->get_mob_exp() << " XP!" << endl;
+            cout << "\033[1;33mYou have killed the " << newMob->getName() << " and received some loot!\033[0m\n" << endl;
+            cout << "\033[1;34m" << userName << " gained " << newMob->get_mob_exp() << " XP!\033[0m\n" << endl;
             currCharacter->setcurrXP(newMob->get_mob_exp());
             currCharacter->levelUp();
             giveDrops();
