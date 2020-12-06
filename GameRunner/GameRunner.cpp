@@ -347,7 +347,7 @@ void GameRunner::createCharacter() {
     getline(cin, name);
     userName = name;
     cout << "\033[1;36m" << name << ", here is a list of the three characters to play as." << "\033[0m\n" << endl;
-    cout << "\033[1;30m-------------------------------------------------------------------------------------------------------------------\033[0m\n";
+    cout << "\033[1;30m-------------------------------------------------------------------------------------------------------------------\033[0m\n" << endl;
     cout << "\033[1;33m1) ARCHER - The archer ascends from poor beginnings. As he grew up, he hunted to provide for his family. After\nmonsters plagued the earth and ravaged his village, he promised to avenge his family. The archer specializes in attack.\033[0m\n" << endl;
     cout << "\033[1;33m2) MAGE - The mage has mystical origins, coming from an unknown dimension. Seeking to master his skills, he travels\nthe realm, practicing his abstract sorcery. The mage specializes in HP.\033[0m\n" << endl;
     cout << "\033[1;33m3) KNIGHT - The knight fell from royalty after being betrayed by the King. Now left with nowhere to go, the Knight\nstruggles to survive in the wilderness. The knight specializes in defense.\033[0m\n" << endl;
