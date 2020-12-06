@@ -17,6 +17,7 @@ Mage::Mage(string name, characterType role) {
     defense = 5;
     level = 1;
     currXP = 0;
+    maxXP = 100;
 }
 
 int Mage::attack(Mob * currMob) {
@@ -35,13 +36,14 @@ int Mage::attack(Mob * currMob) {
 }
 
 void Mage::levelUp() {
-    while (currXP >= 100) {
+    while (currXP >= maxXP) {
         cout << "You have lvled up!" << endl;
         maxHP += 5;
         currHP += 5;
         atk += 3;
         defense += 2;
         level += 1;
-        currXP = currXP - 100;
+        currXP = currXP - maxXP;
+	maxXP += 10;
     }
 }

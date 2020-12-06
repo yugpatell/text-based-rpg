@@ -22,6 +22,7 @@ class Character {
         int defense;
         int level;
         int currXP;
+	int maxXP;
         characterType role;
         vector<Consumable *> consumables;
         vector<Equipable *> inventory;
@@ -41,7 +42,8 @@ class Character {
             int atk = 5;
             int defense = 5;
             int level = 5;
-            int currXP = 5;
+            int currXP = 0;
+	    int maxXP = 100;
         };
 
         void setattackMethod(AttackStrategy * attackMethod) {
@@ -77,6 +79,11 @@ class Character {
         int getcurrXP() const {
             return currXP;
         }
+	
+	int getMaxXP() const {
+	    return maxXP;
+	}
+
         characterType getcharType() const {
             return role;
         }
@@ -93,7 +100,7 @@ class Character {
         }
         void setcurrXP(int XP) {
             currXP += XP;
-            if (currXP >= 100) {
+            if (currXP >= maxXP) {
                 this->levelUp();
             }
         }
