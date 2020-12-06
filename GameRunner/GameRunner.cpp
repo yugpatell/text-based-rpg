@@ -24,7 +24,7 @@ GameRunner * GameRunner::getInstance() {
 void GameRunner::startGame() {
     createCharacter();
     while (currCharacter->getcurrHP() > 0) {
-        cout << string(15, '');
+        cout << string(15, '\n');
         characterOption(printMenu());
     }
 }
@@ -46,11 +46,11 @@ void GameRunner::fight() {
 }
 
 void GameRunner::startFight(Character * currCharacter, Mob * newMob) {
-    cout << string(15, '');
+    cout << string(15, '\n');
     cout << "\033[1;35mYou have encountered a level " << newMob->get_mob_lvl() << " " << newMob->getName() << " with " << newMob->get_mob_hp() << "HP !\033[0m" << endl;
     int mobMaxHP = newMob->get_mob_hp();
     while (currCharacter->getcurrHP() > 0) {
-        cout << string(5, '');
+        cout << string(5, '\n');
         cout << "\033[1;33m" << userName << "'s HP: " << currCharacter->getcurrHP() << "/" << currCharacter->getMaxHP() << ", " << newMob->getName() << "'s HP: " << newMob->get_mob_hp() << "/" << mobMaxHP << "\033[0m" << endl;
         int option = fightMenu();
         if (option == 1) {
@@ -138,7 +138,7 @@ int GameRunner::fightMenu() {
     return input;
 }
 void GameRunner::printConsumables() {
-    cout << string(15, '');
+    cout << string(15, '\n');
     if (currCharacter->consumablesSize() > 0) {
         cout << "\033[1;30m--------------------------------------------------\033[0m" << endl;
     } else {
@@ -153,7 +153,7 @@ void GameRunner::printConsumables() {
 }
 
 void GameRunner::explore() {
-    cout << string(15, '');
+    cout << string(15, '\n');
     cout << "\033[1;34m" << userName << ", your current location is: ";
     printArea();
     cout << "\033[0m";
@@ -303,7 +303,7 @@ void GameRunner::changeEquipment() {
                 cout << "\033[1;34mYou have equipped: " << currCharacter->getWeapon()->getName() << "\033[0m" << endl;
             }
         }
-        cout << string(15, '');
+        cout << string(15, '\n');
         printInventory();
         cout << "\033[1;36mWhat item number would you like to equip (-1 to exit)\033[0m";
         cin >> choice;
