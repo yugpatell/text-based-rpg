@@ -113,7 +113,7 @@ void GameRunner::lootonLoc(CreateEquipableFactory * loot, areaType currArea) {
     } else if (currArea == DESERT) {
         currCharacter -> addEquipment(loot -> CreateLegArmor(currCharacter));
     } else {
-        FileReader reader("../FileReader/Rarity.txt");
+        FileReader reader("FileReader/Rarity.txt");
         srand(time(NULL));
         int randomVal = (rand() % reader.rarities.size()) + 1;
         string rarity = reader.rarities.at(randomVal - 1);
