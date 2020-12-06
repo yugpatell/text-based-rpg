@@ -2,6 +2,7 @@
 #define __DRAKE_H__
 #include <stdlib.h>
 #include <time.h>
+#include <stdlib.h>
 #include "mob.h"
 
 class Drake : public Mob {
@@ -15,8 +16,8 @@ public:
 	attack = 3 * characterlevel + rand() % (5 * characterlevel / 4);
 	defense = 2 * characterlevel + rand() % (5*characterlevel / 4);
         level = abs(characterlevel - 4 + rand() % 6) + 1;
-	    giveExp = level*10*attack/defense;
-	    name = "DRAKE";
+	giveExp = level*10*attack/defense;
+	name = "DRAKE";
     }
 
      int attackChar(int charDefense) {

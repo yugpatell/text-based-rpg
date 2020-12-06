@@ -2,6 +2,7 @@
 #define __TROLL_H__
 
 #include "mob.h"
+#include <stdlib.h>
 
 class Troll : public Mob {
 public:

@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include "mob.h"
+#include <stdlib.h>
 
 class Yeti : public Mob {
 public:

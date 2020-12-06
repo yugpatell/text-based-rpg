@@ -4,6 +4,7 @@
 #include "../Character/Character.h"
 #include "AttackStrategy.h"
 #include <iostream>
+#include <stdlib.h>
 
 class Character;
 
@@ -13,7 +14,7 @@ class KnightAttack : public AttackStrategy {
         KnightAttack() : AttackStrategy() { };
 
         int attackMob(Character * currCharacter, Mob * currMob) {
-            return ((((((2 * currCharacter->getLevel()) / 5) + 2) * 35 * currCharacter->getAtk()) / currCharacter->getcurrHP()) / 5 / 50) + 2;
+            return abs(((((((2 * currCharacter->getLevel()) / 5) + 2) * 35 * currCharacter->getAtk()) / currCharacter->getcurrHP()) / 5 / 50) + 2);
         }
 };
 
