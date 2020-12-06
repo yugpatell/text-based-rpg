@@ -69,6 +69,8 @@ void GameRunner::startFight(Character * currCharacter, Mob * newMob) {
                 cin >> option;
                 currCharacter->setcurrHP(currCharacter->consumablesAt(option - 1)->getValue());
                 currCharacter->removeConsumablesAt(option - 1);
+                currCharacter->setcurrHPAttack(newMob->attackChar(currCharacter->getDefense()));
+                cout << "\033[1;35m" << newMob->getName() << " attacks " << userName << ", dealing " << newMob->attackChar(currCharacter->getDefense()) << " damage!\033[0m" << endl;
             } else {
                 cout << "\033[1;31mYou DONT have any consumables!";
             }
