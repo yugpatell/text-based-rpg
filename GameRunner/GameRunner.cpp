@@ -344,7 +344,7 @@ void GameRunner::heal() {
 void GameRunner::createCharacter() {
     cout << "\033[1;36mWelcome! Please enter your name:\033[0m\n";
     string name;
-    cin >> name;
+    getline(cin, name);
     userName = name;
     cout << "\033[1;36m" << name << ", here is a list of the three characters to play as." << "\033[0m\n" << endl;
     cout << "\033[1;30m-------------------------------------------------------------------------------------------------------------------\033[0m\n";
