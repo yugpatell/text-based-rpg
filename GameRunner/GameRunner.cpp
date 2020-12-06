@@ -82,7 +82,7 @@ void GameRunner::startFight(Character * currCharacter, Mob * newMob) {
         }
         if (newMob->get_mob_hp() <= 0) {
             cout << "\033[1;33mYou have killed the " << newMob->getName() << " and received some loot!\033[0m" << endl;
-            cout << "\033[1;33m" << userName << " gained " << newMob->get_mob_exp() << " XP!\033[0m" << endl;r
+            cout << "\033[1;33m" << userName << " gained " << newMob->get_mob_exp() << " XP!\033[0m" << endl;
             currCharacter->setcurrXP(newMob->get_mob_exp());
             currCharacter->levelUp();
             giveDrops();
