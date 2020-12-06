@@ -250,6 +250,8 @@ void GameRunner::changeEquipment() {
         cout << "\033[1;31mEMPTY INVENTORY!\033[0m" << endl;
         return;
     }
+    printCurrentEquipment();
+    cout << endl;
     printInventory();
     cout << "\033[1;36mWhat item number would you like to equip\033[0m";
     int choice = 0;
@@ -307,6 +309,8 @@ void GameRunner::changeEquipment() {
             }
         }
         cout << string(15, '\n');
+        printCurrentEquipment();
+        cout << endl;
         printInventory();
         cout << "\033[1;36mWhat item number would you like to equip (-1 to exit)\033[0m";
         cin >> choice;
@@ -317,19 +321,19 @@ void GameRunner::changeEquipment() {
 
 void GameRunner::printCurrentEquipment() {
     if (currCharacter->getChestplate() != nullptr) {
-        cout << currCharacter->getChestplate()->getName() << endl;
+        cout << "\033[1;36m" << currCharacter->getChestplate()->getName() << "\033[0m" << endl;
         cout << "\033[1;33mARMOR - " << currCharacter->getChestplate()->getValue() << "\033[0m" << endl;
     } else {
         cout << "\033[1;31mYou DONT have a chestplate equipped!\033[0m" << endl;
     }
     if (currCharacter->getLeggings() != nullptr) {
-        cout << currCharacter->getLeggings()->getName() << endl;
+        cout << "\033[1;36m" << currCharacter->getLeggings()->getName() << "\033[0m" << endl;
         cout << "\033[1;33mARMOR - " << currCharacter->getLeggings()->getValue() << "\033[0m" << endl;
     } else {
         cout << "\033[1;31mYou DONT have leggings equipped!\033[0m" << endl;
     }
     if (currCharacter->getWeapon() != nullptr) {
-        cout << currCharacter->getWeapon()->getName() << endl;
+        cout << "\033[1;36m" << currCharacter->getWeapon()->getName() << "\033[0m" << endl;
         cout << "\033[1;33mDMG - " << currCharacter->getWeapon()->getValue() << "\033[0m" << endl;
     } else {
         cout << "\033[1;31mYou DONT have a weapon equipped!\033[0m" << endl;
