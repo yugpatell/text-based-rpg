@@ -154,8 +154,9 @@ void GameRunner::printConsumables() {
 
 void GameRunner::explore() {
     cout << string(15, '\n');
-    cout << "\033[1;34m" << userName << ", your current location is:\033[0m\n";
+    cout << "\033[1;34m" << userName << ", your current location is: ";
     printArea();
+    cout << "\033[0m\n";
     int choice = exploreMenu();
     if (choice == 1) {
         area = FOREST;
@@ -166,15 +167,16 @@ void GameRunner::explore() {
     } else {
         area = ARCTIC;
     }
-    cout << "\033[1;34m" << userName << ", your new location is: \033[0m\n";
+    cout << "\033[1;34m" << userName << ", your new location is:";
     printArea();
+    cout << "\033[0m\n";
 }
 
 int GameRunner::exploreMenu() {
-    cout << "\033[1;30m--------------------------------------------------\033[0m\n" << endl;
+    cout << "\033[1;30m--------------------------------------------------\033[0m" << endl;
     cout << "\033[1;32m1) FOREST             3) DESERT\033[0m\n" << endl;
     cout << "\033[1;32m2) CAVE               4) ARCTIC\033[0m\n" << endl;
-    cout << "\033[1;30m--------------------------------------------------\033[0m\n" << endl;
+    cout << "\033[1;30m--------------------------------------------------\033[0m" << endl;
 
     cout << "\033[1;36mSelect one of the options by entering 1-4 inputs:\033[0m\n ";
     int input;
@@ -200,7 +202,7 @@ void GameRunner::printArea() {
 void GameRunner::printInventory() {
     cout << string(15, '\n');
     if (currCharacter->equipmentSize() > 0) {
-        cout << "\033[1;30m--------------------------------------------------\033[0m\n" << endl;
+        cout << "\033[1;30m--------------------------------------------------\033[0m" << endl;
     } else {
         cout << endl << "\033[1;31mEMPTY INVENTORY!" << endl;
     }
@@ -212,15 +214,15 @@ void GameRunner::printInventory() {
         } else {
             cout << "\033[1;33mWEAPON DMG - " << currCharacter->equipmentAt(i)->getValue() << "\033[0m\n" << endl;
         }
-        cout << "\033[1;30m--------------------------------------------------\033[0m\n" << endl;
+        cout << "\033[1;30m--------------------------------------------------\033[0m" << endl;
     }
 }
 
 void GameRunner::useInventory() {
-    cout << "\033[1;30m--------------------------------------------------\033[0m\n" << endl;
+    cout << "\033[1;30m--------------------------------------------------\033[0m" << endl;
     cout << "\033[1;32m1) EQUIPMENT             2) CONSUMABLES\033[0m\n" << endl;
     cout << "\033[1;32m3) CHANGE EQUIPMENT      4) CURRENT EQUIPMENT\033[0m\n" << endl;
-    cout << "\033[1;30m--------------------------------------------------\033[0m\n" << endl;
+    cout << "\033[1;30m--------------------------------------------------\033[0m" << endl;
 
     cout << "\033[1;36mSelect one of the options by entering 1-2 inputs:\033[0m\n ";
     int input;
@@ -347,11 +349,11 @@ void GameRunner::createCharacter() {
     getline(cin, name);
     userName = name;
     cout << "\033[1;36m" << name << ", here is a list of the three characters to play as." << "\033[0m\n" << endl;
-    cout << "\033[1;30m-------------------------------------------------------------------------------------------------------------------\033[0m\n" << endl;
+    cout << "\033[1;30m-------------------------------------------------------------------------------------------------------------------\033[0m" << endl;
     cout << "\033[1;33m1) ARCHER - The archer ascends from poor beginnings. As he grew up, he hunted to provide for his family. After\nmonsters plagued the earth and ravaged his village, he promised to avenge his family. The archer specializes in attack.\033[0m\n" << endl;
     cout << "\033[1;33m2) MAGE - The mage has mystical origins, coming from an unknown dimension. Seeking to master his skills, he travels\nthe realm, practicing his abstract sorcery. The mage specializes in HP.\033[0m\n" << endl;
     cout << "\033[1;33m3) KNIGHT - The knight fell from royalty after being betrayed by the King. Now left with nowhere to go, the Knight\nstruggles to survive in the wilderness. The knight specializes in defense.\033[0m\n" << endl;
-    cout << "\033[1;30m-------------------------------------------------------------------------------------------------------------------\033[0m\n";
+    cout << "\033[1;30m-------------------------------------------------------------------------------------------------------------------\033[0m";
     cout << "\033[1;36mEnter the corresponding number of the character you wish to play as:\033[0m\n";
     int charNum;
     cin >> charNum;
@@ -374,10 +376,10 @@ void GameRunner::createCharacter() {
 int GameRunner::printMenu() {
     cout << "\033[1;36mDays Counter: " << numDays << "\033[0m\n" << endl;
     cout << "\033[1;33m" << userName << "'s LVL: " << currCharacter->getLevel() << ", HP: " << currCharacter->getcurrHP() << "/" << currCharacter->getMaxHP() << ", XP: " << currCharacter->getcurrXP() << "/" << 100 << "\033[0m\n" << endl;
-    cout << "\033[1;30m--------------------------------------------------\033[0m\n" << endl;
+    cout << "\033[1;30m--------------------------------------------------\033[0m" << endl;
     cout << "\033[1;32m1) FIGHT               3) ACCESS INVENTORY\033[0m\n" << endl;
     cout << "\033[1;32m2) EXPLORE             4) REST\033[0m\n" << endl;
-    cout << "\033[1;30m--------------------------------------------------\033[0m\n" << endl;
+    cout << "\033[1;30m--------------------------------------------------\033[0m" << endl;
 
     cout << "\033[1;36mSelect one of the options by entering 1-4 inputs:\033[0m\n ";
     int input;
