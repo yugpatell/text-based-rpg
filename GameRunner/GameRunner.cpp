@@ -338,30 +338,30 @@ void GameRunner::heal() {
 }
 
 void GameRunner::createCharacter() {
-    cout << "Welcome! Please enter your name:";
+    cout << "\033[1;36mWelcome! Please enter your name:\033[0m\n";
     string name;
     cin >> name;
     userName = name;
-    cout << name << ", here is a list of the three characters to play as." << endl;
-    cout << "-------------------------------------------------------------------------------------------------------------------" << endl;
-    cout << "1) ARCHER - The archer ascends from poor beginnings. As he grew up, he hunted to provide for his family. After\nmonsters plagued the earth and ravaged his village, he promised to avenge his family. The archer specializes in attack." << endl;
-    cout << "2) MAGE - The mage has mystical origins, coming from an unknown dimension. Seeking to master his skills, he travels\nthe realm, practicing his abstract sorcery. The mage specializes in HP." << endl;
-    cout << "3) KNIGHT - The knight fell from royalty after being betrayed by the King. Now left with nowhere to go, the Knight\nstruggles to survive in the wilderness. The knight specializes in defense." << endl;
-    cout << "-------------------------------------------------------------------------------------------------------------------" << endl;
-    cout << "Enter the corresponding number of the character you wish to play as: ";
+    cout << "\033[1;30m" << name << ", here is a list of the three characters to play as." << "\033[0m\n" << endl;
+    cout << "\033[1;32m-------------------------------------------------------------------------------------------------------------------\033[0m\n";
+    cout << "\033[1;33m1) ARCHER - The archer ascends from poor beginnings. As he grew up, he hunted to provide for his family. After\nmonsters plagued the earth and ravaged his village, he promised to avenge his family. The archer specializes in attack.\033[0m\n" << endl;
+    cout << "\033[1;33m2) MAGE - The mage has mystical origins, coming from an unknown dimension. Seeking to master his skills, he travels\nthe realm, practicing his abstract sorcery. The mage specializes in HP.\033[0m\n" << endl;
+    cout << "\033[1;33m3) KNIGHT - The knight fell from royalty after being betrayed by the King. Now left with nowhere to go, the Knight\nstruggles to survive in the wilderness. The knight specializes in defense.\033[0m\n" << endl;
+    cout << "\033[1;30m-------------------------------------------------------------------------------------------------------------------\033[0m\n";
+    cout << "\033[1;36mEnter the corresponding number of the character you wish to play as:\033[0m\n";
     int charNum;
     cin >> charNum;
     if (charNum < 1 || charNum > 3) {
-        cout << "Restarting character selection due to invalid input" << endl;
+        cout << "\033[1;31mRestarting character selection due to invalid input\033[0m\n" << endl;
         this->createCharacter();
     } else if (charNum == 1) {
-        cout << "You have selected the ARCHER Character!" << endl;
+        cout << "\033[1;33mYou have selected the ARCHER Character!\033[0m\n" << endl;
         currCharacter = new Archer(name, ARCHER);
     } else if (charNum == 2) {
-        cout << "You have selected the MAGE Character!" << endl;
+        cout << "\033[1;33mYou have selected the MAGE Character!\033[0m\n" << endl;
         currCharacter = new Mage(name, MAGE);
     } else {
-        cout << "You have selected the KNIGHT Character!" << endl;
+        cout << "\033[1;33mYou have selected the KNIGHT Character!\033[0m\n" << endl;
         currCharacter = new Knight(name, KNIGHT);
     }
 }
