@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include "mob.h"
+#include <stdlib.h>
 
 class Yeti : public Mob {
 public:
@@ -20,7 +21,7 @@ public:
     }
 
     int attackChar(int charDefense) {
-	    return (((((2 * level / 5) + 2) * (35 + (level * 9 /10)) * attack) / charDefense) /50 ) + 2;
+	    return abs((((((2 * level / 5) + 2) * (35 + (level * 9 /10)) * attack) / charDefense) /50 ) + 2);
     }
 
 };
