@@ -17,6 +17,7 @@ Archer::Archer(string name, characterType role) {
     defense = 5;
     level = 1;
     currXP = 0;
+    maxXP = 100;
 }
 
 int Archer::attack(Mob * currMob) {
@@ -35,13 +36,14 @@ int Archer::attack(Mob * currMob) {
 }
 
 void Archer::levelUp() {
-    while (currXP >= 100) {
+    while (currXP >= maxXP) {
         cout << "You have lvled up!" << endl;
         maxHP += 3;
         currHP += 3;
         atk += 5;
         defense += 2;
         level += 1;
-        currXP = currXP - 100;
+        currXP = currXP - maxXP;
+	maxXP += 10;
     }
 }

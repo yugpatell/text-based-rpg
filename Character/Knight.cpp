@@ -17,6 +17,7 @@ Knight::Knight(string name, characterType role) {
     defense = 5;
     level = 1;
     currXP = 0;
+    maxXP = 100;
 }
 
 int Knight::attack(Mob * currMob) {
@@ -35,14 +36,15 @@ int Knight::attack(Mob * currMob) {
 }
 
 void Knight::levelUp() {
-    while (currXP >= 100) {
+    while (currXP >= maxXP) {
         cout << "You have lvled up!" << endl;
         maxHP += 3;
         currHP += 3;
         atk += 2;
         defense += 5;
         level += 1;
-        currXP = currXP - 100;
+        currXP = currXP - maxXP;
+	maxXP += 10;
     }
 }
 
