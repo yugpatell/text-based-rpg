@@ -355,7 +355,7 @@ void GameRunner::createCharacter() {
     cout << "\033[1;33m2) MAGE - The mage has mystical origins, coming from an unknown dimension. Seeking to master his skills, he travelsthe realm, practicing his abstract sorcery. The mage specializes in HP.\033[0m" << endl;
     cout << "\033[1;33m3) KNIGHT - The knight fell from royalty after being betrayed by the King. Now left with nowhere to go, the Knightstruggles to survive in the wilderness. The knight specializes in defense.\033[0m" << endl;
     cout << "\033[1;30m-------------------------------------------------------------------------------------------------------------------\033[0m" << endl;
-    cout << "\033[1;36mEnter the corresponding number of the character you wish to play as:\033[0m";
+    cout << "\033[1;36mEnter the corresponding number of the character you wish to play as: \033[0m";
     int charNum;
     cin >> charNum;
     if (charNum < 1 || charNum > 3) {
