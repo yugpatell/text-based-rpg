@@ -331,10 +331,10 @@ void GameRunner::printCurrentEquipment() {
 void GameRunner::heal() {
     if (currCharacter->getcurrHP() < currCharacter->getMaxHP()) {
         currCharacter->setcurrHP((currCharacter->getMaxHP() * 3) / 10);
-        cout << userName << ", your current HP is now at: " << currCharacter->getcurrHP() << "/" << currCharacter->getMaxHP() << endl;
+        cout << "\033[1;34m" << userName << ", your current HP is now at: " << currCharacter->getcurrHP() << "/" << currCharacter->getMaxHP() << "\033[0m\n" << endl;
         return;
     }
-    cout << userName << ", you are already at MAX HP: " << currCharacter->getcurrHP() << "/" << currCharacter->getMaxHP();
+    cout << "\033[1;31m" << userName << ", you are already at MAX HP: " << currCharacter->getcurrHP() << "/" << currCharacter->getMaxHP() << "\033[0m\n" << endl;
 }
 
 void GameRunner::createCharacter() {
@@ -342,8 +342,8 @@ void GameRunner::createCharacter() {
     string name;
     cin >> name;
     userName = name;
-    cout << "\033[1;30m" << name << ", here is a list of the three characters to play as." << "\033[0m\n" << endl;
-    cout << "\033[1;32m-------------------------------------------------------------------------------------------------------------------\033[0m\n";
+    cout << "\033[1;36m" << name << ", here is a list of the three characters to play as." << "\033[0m\n" << endl;
+    cout << "\033[1;30m-------------------------------------------------------------------------------------------------------------------\033[0m\n";
     cout << "\033[1;33m1) ARCHER - The archer ascends from poor beginnings. As he grew up, he hunted to provide for his family. After\nmonsters plagued the earth and ravaged his village, he promised to avenge his family. The archer specializes in attack.\033[0m\n" << endl;
     cout << "\033[1;33m2) MAGE - The mage has mystical origins, coming from an unknown dimension. Seeking to master his skills, he travels\nthe realm, practicing his abstract sorcery. The mage specializes in HP.\033[0m\n" << endl;
     cout << "\033[1;33m3) KNIGHT - The knight fell from royalty after being betrayed by the King. Now left with nowhere to go, the Knight\nstruggles to survive in the wilderness. The knight specializes in defense.\033[0m\n" << endl;
@@ -355,31 +355,31 @@ void GameRunner::createCharacter() {
         cout << "\033[1;31mRestarting character selection due to invalid input\033[0m\n" << endl;
         this->createCharacter();
     } else if (charNum == 1) {
-        cout << "\033[1;33mYou have selected the ARCHER Character!\033[0m\n" << endl;
+        cout << "\033[1;35mYou have selected the ARCHER Character!\033[0m\n" << endl;
         currCharacter = new Archer(name, ARCHER);
     } else if (charNum == 2) {
-        cout << "\033[1;33mYou have selected the MAGE Character!\033[0m\n" << endl;
+        cout << "\033[1;35mYou have selected the MAGE Character!\033[0m\n" << endl;
         currCharacter = new Mage(name, MAGE);
     } else {
-        cout << "\033[1;33mYou have selected the KNIGHT Character!\033[0m\n" << endl;
+        cout << "\033[1;35mYou have selected the KNIGHT Character!\033[0m\n" << endl;
         currCharacter = new Knight(name, KNIGHT);
     }
 }
 
 int GameRunner::printMenu() {
-    cout << "Days Counter: " << numDays << endl;
-    cout << userName << "'s LVL: " << currCharacter->getLevel() << ", HP: " << currCharacter->getcurrHP() << "/" << currCharacter->getMaxHP() << ", XP: " << currCharacter->getcurrXP() << "/" << 100 << endl;
-    cout << "--------------------------------------------------" << endl;
-    cout << "1) FIGHT               3) ACCESS INVENTORY" << endl;
-    cout << "2) EXPLORE             4) REST" << endl;
-    cout << "--------------------------------------------------" << endl;
+    cout << "\033[1;36mDays Counter: " << numDays << "\033[0m\n" << endl;
+    cout << "\033[1;37m << userName << "'s LVL: " << currCharacter->getLevel() << ", HP: " << currCharacter->getcurrHP() << "/" << currCharacter->getMaxHP() << ", XP: " << currCharacter->getcurrXP() << "/" << 100 << "\033[0m\n" << endl;
+    cout << "\033[1;30m--------------------------------------------------\033[0m\n" << endl;
+    cout << "\033[1;32m1) FIGHT               3) ACCESS INVENTORY\033[0m\n" << endl;
+    cout << "\033[1;32m2) EXPLORE             4) REST\033[0m\n" << endl;
+    cout << "\033[1;30m--------------------------------------------------\033[0m\n" << endl;
 
-    cout << "Select one of the options by entering 1-4 inputs: ";
+    cout << "\033[1;36mSelect one of the options by entering 1-4 inputs:\033[0m\n ";
     int input;
     cin >> input;
 
     if (input < 1 || input > 4) {
-        cout << "INVALID INPUT DETECTED, REPROMPTING THE MENU!" << endl;
+        cout << "\033[1;31mINVALID INPUT DETECTED, REPROMPTING THE MENU!\033[0m\n" << endl;
         this->printMenu();
     }
     return input;
@@ -401,16 +401,16 @@ void GameRunner::characterOption(int option) {
             }
         }
         else {
-            cout << "YOU HAVE ALREADY RESTED TODAY!" << endl;
+            cout << "\033[1;31mYOU HAVE ALREADY RESTED TODAY!\033[0m\n" << endl;
         }
     }
 }
 
 void GameRunner::printStats() {
     if (currCharacter->getLeggings() != nullptr || currCharacter->getChestplate() != nullptr) {
-        cout << "CURRENT DEFENSE - " << currCharacter->getDefense() << endl;
+        cout << "\033[1;35mCURRENT DEFENSE - " << currCharacter->getDefense() << "\033[0m\n" << endl;
     }
     if (currCharacter->getWeapon() != nullptr) {
-        cout << "CURRENT ATTACK - " << currCharacter->getAtk() << endl;
+        cout << "\033[1;35mCURRENT ATTACK - " << currCharacter->getAtk() << "\033[0m\n" << endl;
     }
 }
