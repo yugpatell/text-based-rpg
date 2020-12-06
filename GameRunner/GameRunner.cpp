@@ -374,7 +374,6 @@ void GameRunner::createCharacter() {
 }
 
 int GameRunner::printMenu() {
-<<<<<<< HEAD
     cout << "\033[1;36mDays Counter: " << numDays << "\033[0m\n" << endl;
     cout << "\033[1;33m" << userName << "'s LVL: " << currCharacter->getLevel() << ", HP: " << currCharacter->getcurrHP() << "/" << currCharacter->getMaxHP() << ", XP: " << currCharacter->getcurrXP() << "/" << currCharacter->getMaxXP() << "\033[0m\n" << endl;
     cout << "\033[1;30m--------------------------------------------------\033[0m\n" << endl;
@@ -383,7 +382,6 @@ int GameRunner::printMenu() {
     cout << "\033[1;30m--------------------------------------------------\033[0m\n" << endl;
 
     cout << "\033[1;36mSelect one of the options by entering 1-4 inputs:\033[0m\n ";
-=======
     cout << "\033[1;36mDays Counter: " << numDays << "\033[0m" << endl;
     cout << "\033[1;33m" << userName << "'s LVL: " << currCharacter->getLevel() << ", HP: " << currCharacter->getcurrHP() << "/" << currCharacter->getMaxHP() << ", XP: " << currCharacter->getcurrXP() << "/" << 100 << "\033[0m" << endl;
     cout << "\033[1;30m--------------------------------------------------\033[0m" << endl;
@@ -392,7 +390,6 @@ int GameRunner::printMenu() {
     cout << "\033[1;30m--------------------------------------------------\033[0m" << endl;
 
     cout << "\033[1;36mSelect one of the options by entering 1-4 inputs:\033[0m ";
->>>>>>> 94a1de8481d0c7411e7419d960179f26e9e607f6
     int input;
     cin >> input;
 
