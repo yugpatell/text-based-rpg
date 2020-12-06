@@ -5,6 +5,7 @@
 
 #include "AttackStrategy.h"
 #include <iostream>
+#include <stdlib.h>
 
 class Character;
 
@@ -14,7 +15,7 @@ class ArcherAttack : public AttackStrategy {
         ArcherAttack() : AttackStrategy() { };
 
         int attackMob(Character * currCharacter, Mob * currMob) {
-            return (((((2 * currCharacter->getLevel() / 5 ) + 2) * (35 + (currCharacter->getLevel())) * currCharacter->getAtk()) / currMob->get_mob_def()) / 50) + 1;
+            return abs((((((2 * currCharacter->getLevel() / 5 ) + 2) * (35 + (currCharacter->getLevel())) * currCharacter->getAtk()) / currMob->get_mob_def()) / 50) + 1);
         }
 };
 
