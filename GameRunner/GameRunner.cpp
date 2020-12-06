@@ -200,7 +200,7 @@ void GameRunner::printArea() {
     }
 }
 void GameRunner::printInventory() {
-    cout << string(15, '');
+    cout << string(15, '\n');
     if (currCharacter->equipmentSize() > 0) {
         cout << "\033[1;30m--------------------------------------------------\033[0m" << endl;
     } else {
