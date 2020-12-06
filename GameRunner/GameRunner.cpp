@@ -51,7 +51,7 @@ void GameRunner::startFight(Character * currCharacter, Mob * newMob) {
     int mobMaxHP = newMob->get_mob_hp();
     while (currCharacter->getcurrHP() > 0) {
         cout << string(5, '\n');
-        cout << "\033[1;33muserName << "'s HP: " << currCharacter->getcurrHP() << "/" << currCharacter->getMaxHP() << ", " << newMob->getName() << "'s HP: " << newMob->get_mob_hp() << "/" << mobMaxHP << "\033[0m\n" << endl;
+        cout << "\033[1;33m" << userName << "'s HP: " << currCharacter->getcurrHP() << "/" << currCharacter->getMaxHP() << ", " << newMob->getName() << "'s HP: " << newMob->get_mob_hp() << "/" << mobMaxHP << "\033[0m\n" << endl;
         int option = fightMenu();
         if (option == 1) {
             newMob->set_mob_hp(currCharacter->attack(newMob));
