@@ -9,7 +9,7 @@
 class CreateArcherItemFactory : public CreateEquipableFactory{
   public:
     virtual Chainmail* CreateChestArmor(Character * c){
-      FileReader reader("../FileReader/Rarity.txt");
+      FileReader reader("FileReader/Rarity.txt");
       srand(time(NULL));
       int randomVal = (rand() % reader.rarities.size()) + 1;
       string rarity = reader.rarities.at(randomVal - 1);
@@ -19,7 +19,7 @@ class CreateArcherItemFactory : public CreateEquipableFactory{
     }
 
     virtual LeatherPants* CreateLegArmor(Character * c){
-      FileReader reader("../FileReader/Rarity.txt");
+      FileReader reader("FileReader/Rarity.txt");
       srand(time(NULL));
       int randomVal = (rand() % reader.rarities.size()) + 1;
       string rarity = reader.rarities.at(randomVal - 1);
@@ -29,7 +29,7 @@ class CreateArcherItemFactory : public CreateEquipableFactory{
     }
 
     virtual Bow* CreateWeapon(Character * c){
-      FileReader reader("../FileReader/Rarity.txt");
+      FileReader reader("FileReader/Rarity.txt");
       srand(time(NULL));
       int randomVal = (rand() % reader.rarities.size()) + 1;
       string rarity = reader.rarities.at(randomVal - 1);
