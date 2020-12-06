@@ -123,16 +123,16 @@ void GameRunner::lootonLoc(CreateEquipableFactory * loot, areaType currArea) {
 }
 
 int GameRunner::fightMenu() {
-    cout << "--------------------------------------------------" << endl;
-    cout << "1) ATTACK               3) RUN" << endl;
-    cout << "2) USE HEAL ITEM " << endl;
-    cout << "--------------------------------------------------" << endl;
-    cout << "Select one of the options by entering 1-3 inputs: ";
+    cout << "\033[1;30m--------------------------------------------------\033[0m\n" << endl;
+    cout << "\033[1;32m1) ATTACK               3) RUN\033[0m\n" << endl;
+    cout << "\033[1;32m2) USE HEAL ITEM\033[0m\n" << endl;
+    cout << "\033[1;30m--------------------------------------------------\033[0m\n" << endl;
+    cout << "\033[1;36mSelect one of the options by entering 1-3 inputs: ";
     int input;
     cin >> input;
 
     if (input < 1 || input > 3) {
-        cout << "INVALID INPUT DETECTED, REPROMPTING THE MENU!";
+        cout << "\033[1;31mINVALID INPUT DETECTED, REPROMPTING THE MENU!\033[0m\n";
         this->printMenu();
     }
     return input;
@@ -140,21 +140,21 @@ int GameRunner::fightMenu() {
 void GameRunner::printConsumables() {
     cout << string(15, '\n');
     if (currCharacter->consumablesSize() > 0) {
-        cout << "--------------------------------------------------" << endl;
+        cout << "\033[1;30m--------------------------------------------------\033[0m\n" << endl;
     } else {
-        cout << endl << "EMPTY CONSUMABLES!" << endl;
+        cout << endl << "\033[1;31EMPTY CONSUMABLES!" << endl;
     }
     for (unsigned int i = 0; i < currCharacter->consumablesSize(); i++) {
-        cout << "POTION #" << i + 1 << endl;
-        cout << "NAME - " << currCharacter->consumablesAt(i)->getName()  << " Potion" << endl;
-        cout << "HEAL VALUE - " << currCharacter->consumablesAt(i)->getValue() << endl;
-        cout << "--------------------------------------------------" << endl;
+        cout << "\033[1;35mPOTION #" << i + 1 << "\033[0m\n" << endl;
+        cout << "\033[1;35mNAME - " << currCharacter->consumablesAt(i)->getName()  << " Potion\033[0m\n" << endl;
+        cout << "\033[1;35mHEAL VALUE - " << currCharacter->consumablesAt(i)->getValue() << "\033[0m\n" << endl;
+        cout << "\033[1;30m--------------------------------------------------\033[0m\n" << endl;
     }
 }
 
 void GameRunner::explore() {
     cout << string(15, '\n');
-    cout << userName << ", your current location is: ";
+    cout << \033[1;34m" << userName << ", your current location is: \033[0m\n";
     printArea();
     int choice = exploreMenu();
     if (choice == 1) {
@@ -166,22 +166,22 @@ void GameRunner::explore() {
     } else {
         area = ARCTIC;
     }
-    cout << userName << ", your new location is: ";
+    cout << "\033[1;34m" << userName << ", your new location is: \033[0m\n";
     printArea();
 }
 
 int GameRunner::exploreMenu() {
-    cout << "--------------------------------------------------" << endl;
-    cout << "1) FOREST             3) DESERT" << endl;
-    cout << "2) CAVE               4) ARCTIC " << endl;
-    cout << "--------------------------------------------------" << endl;
+    cout << "\033[1;30m--------------------------------------------------\033[0m\n" << endl;
+    cout << "\033[1;32m1) FOREST             3) DESERT\033[0m\n" << endl;
+    cout << "\033[1;32m2) CAVE               4) ARCTIC\033[0m\n" << endl;
+    cout << "\033[1;30m--------------------------------------------------\033[0m\n" << endl;
 
-    cout << "Select one of the options by entering 1-4 inputs: ";
+    cout << "\033[1;36mSelect one of the options by entering 1-4 inputs:\033[0m\n ";
     int input;
     cin >> input;
 
     if (input < 1 || input > 4) {
-        cout << "INVALID INPUT DETECTED, REPROMPTING THE MENU!";
+        cout << "\033[1;31mINVALID INPUT DETECTED, REPROMPTING THE MENU!\033[0m\n";
         this->exploreMenu();
     }
     return input;
@@ -200,29 +200,29 @@ void GameRunner::printArea() {
 void GameRunner::printInventory() {
     cout << string(15, '\n');
     if (currCharacter->equipmentSize() > 0) {
-        cout << "--------------------------------------------------" << endl;
+        cout << "\033[1;30m--------------------------------------------------\033[0m\n" << endl;
     } else {
-        cout << endl << "EMPTY INVENTORY!" << endl;
+        cout << endl << "\033[1;31mEMPTY INVENTORY!" << endl;
     }
     for (unsigned int i = 0; i < currCharacter->equipmentSize(); i++) {
-        cout << "ITEM #" << i + 1 << endl;
-        cout << "NAME - " << currCharacter->equipmentAt(i)->getName() << endl;
+        cout << "\033[1;33mITEM #" << i + 1 << "\033[0m\n" << endl;
+        cout << "\033[1;33mNAME - " << currCharacter->equipmentAt(i)->getName() << "\033[0m\n" << endl;
         if (currCharacter->equipmentAt(i)->isArmor()) {
-            cout << "ARMOR VALUE - " << currCharacter->equipmentAt(i)->getValue() << endl;
+            cout << "\033[1;33mARMOR VALUE - " << currCharacter->equipmentAt(i)->getValue() << "\033[0m\n" << endl;
         } else {
-            cout << "WEAPON DMG - " << currCharacter->equipmentAt(i)->getValue() << endl;
+            cout << "\033[1;33mWEAPON DMG - " << currCharacter->equipmentAt(i)->getValue() << \033[0m\n" << endl;
         }
-        cout << "--------------------------------------------------" << endl;
+        cout << "\033[1;30m--------------------------------------------------\033[0m\n" << endl;
     }
 }
 
 void GameRunner::useInventory() {
-    cout << "--------------------------------------------------" << endl;
-    cout << "1) EQUIPMENT             2) CONSUMABLES" << endl;
-    cout << "3) CHANGE EQUIPMENT      4) CURRENT EQUIPMENT" << endl;
-    cout << "--------------------------------------------------" << endl;
+    cout << "\033[1;30m--------------------------------------------------\033[0m\n" << endl;
+    cout << "\033[1;32m1) EQUIPMENT             2) CONSUMABLES\033[0m\n" << endl;
+    cout << "\033[1;32m3) CHANGE EQUIPMENT      4) CURRENT EQUIPMENT\033[0m\n" << endl;
+    cout << "\033[1;30m--------------------------------------------------\033[0m\n" << endl;
 
-    cout << "Select one of the options by entering 1-2 inputs: ";
+    cout << "\033[1;36mSelect one of the options by entering 1-2 inputs:\033[0m\n ";
     int input;
     cin >> input;
 
@@ -235,20 +235,20 @@ void GameRunner::useInventory() {
     } else if (input == 4) {
         printCurrentEquipment();
     } else {
-        cout << "INVALID INPUT DETECTED, REPROMPTING THE MENU!";
+        cout << "\033[1;31mINVALID INPUT DETECTED, REPROMPTING THE MENU!\033[0m\n";
         this->useInventory();
     }
 }
 
 void GameRunner::changeEquipment() {
     printInventory();
-    cout << "What item number would you like to equip";
+    cout << "\033[1;36mWhat item number would you like to equip\033[0m\n";
     int choice = 0;
     cin >> choice;
     int compare = choice;
     while (choice != -1) {
         if (compare - 1 > currCharacter->equipmentSize()) {
-            cout << "INVALID ITEM NUMBER, PLEASE TRY AGAIN!" << endl;
+            cout << "\033[1;31mINVALID ITEM NUMBER, PLEASE TRY AGAIN!\033[0m\n" << endl;
             this->changeEquipment();
         }
 
@@ -258,28 +258,28 @@ void GameRunner::changeEquipment() {
                     currCharacter->setLeggings(currCharacter->equipmentAt(choice - 1));
                     currCharacter->removeEquipmentAt(choice - 1);
                     currCharacter->setDefense(currCharacter->getLeggings()->getValue());
-                    cout << "You have equipped: " << currCharacter->getLeggings()->getName() << endl;
+                    cout << "\033[1;34mYou have equipped: " << currCharacter->getLeggings()->getName() << "\033[0m\n" << endl;
                 } else {
                     currCharacter->setDefense(currCharacter->getLeggings()->getValue() * -1);
                     currCharacter->addEquipment(currCharacter->getLeggings());
                     currCharacter->setLeggings(currCharacter->equipmentAt(choice - 1));
                     currCharacter->removeEquipmentAt(choice - 1);
                     currCharacter->setDefense(currCharacter->getLeggings()->getValue());
-                    cout << "You have equipped: " << currCharacter->getLeggings()->getName() << endl;
+                    cout << "\033[1;34mYou have equipped: " << currCharacter->getLeggings()->getName() << "\033[0m\n" << endl;
                 }
             } else {
                 if (currCharacter->getChestplate() == nullptr) {
                     currCharacter->setChest(currCharacter->equipmentAt(choice - 1));
                     currCharacter->removeEquipmentAt(choice - 1);
                     currCharacter->setDefense(currCharacter->getChestplate()->getValue());
-                    cout << "You have equipped: " << currCharacter->getChestplate()->getName() << endl;
+                    cout << "\033[1;34mYou have equipped: " << currCharacter->getChestplate()->getName() << "\033[0m\n" << endl;
                 } else {
                     currCharacter->setDefense(currCharacter->getChestplate()->getValue() * -1);
                     currCharacter->addEquipment(currCharacter->getChestplate());
                     currCharacter->setChest(currCharacter->equipmentAt(choice - 1));
                     currCharacter->removeEquipmentAt(choice - 1);
                     currCharacter->setDefense(currCharacter->getChestplate()->getValue());
-                    cout << "You have equipped: " << currCharacter->getChestplate()->getName() << endl;
+                    cout << "\033[1;34mYou have equipped: " << currCharacter->getChestplate()->getName() << "\033[0m\n" << endl;
                 }
             }
         } else {
@@ -287,19 +287,19 @@ void GameRunner::changeEquipment() {
                 currCharacter->setWeapon(currCharacter->equipmentAt(choice - 1));
                 currCharacter->removeEquipmentAt(choice - 1);
                 currCharacter->setAttack(currCharacter->getWeapon()->getValue());
-                cout << "You have equipped: " << currCharacter->getWeapon()->getName() << endl;
+                cout << "\033[1;34mYou have equipped: " << currCharacter->getWeapon()->getName() << "\033[0m\n" << endl;
             } else {
                 currCharacter->setAttack(currCharacter->getWeapon()->getValue() * -1);
                 currCharacter->addEquipment(currCharacter->getWeapon());
                 currCharacter->setWeapon(currCharacter->equipmentAt(choice - 1));
                 currCharacter->removeEquipmentAt(choice - 1);
                 currCharacter->setAttack(currCharacter->getWeapon()->getValue());
-                cout << "You have equipped: " << currCharacter->getWeapon()->getName() << endl;
+                cout << "\033[1;34mYou have equipped: " << currCharacter->getWeapon()->getName() << "\033[0m\n" << endl;
             }
         }
         cout << string(15, '\n');
         printInventory();
-        cout << "What item number would you like to equip (-1 to exit)";
+        cout << "\033[1;36mWhat item number would you like to equip (-1 to exit)\033[0m\n";
         cin >> choice;
     }
 
@@ -309,21 +309,21 @@ void GameRunner::changeEquipment() {
 void GameRunner::printCurrentEquipment() {
     if (currCharacter->getChestplate() != nullptr) {
         cout << currCharacter->getChestplate()->getName() << endl;
-        cout << "ARMOR - " << currCharacter->getChestplate()->getValue() << endl;
+        cout << "\033[1;33mARMOR - " << currCharacter->getChestplate()->getValue() << "\033[0m\n" << endl;
     } else {
-        cout << "You DONT have a chestplate equipped!" << endl;
+        cout << "\033[1;31mYou DONT have a chestplate equipped!\033[0m\n" << endl;
     }
     if (currCharacter->getLeggings() != nullptr) {
         cout << currCharacter->getLeggings()->getName() << endl;
-        cout << "ARMOR - " << currCharacter->getLeggings()->getValue() << endl;
+        cout << "\033[1;33mARMOR - " << currCharacter->getLeggings()->getValue() << "\033[0m\n" << endl;
     } else {
-        cout << "You DONT have leggings equipped!" << endl;
+        cout << "\033[1;31mYou DONT have leggings equipped!\033[0m\n" << endl;
     }
     if (currCharacter->getWeapon() != nullptr) {
         cout << currCharacter->getWeapon()->getName() << endl;
-        cout << "DMG - " << currCharacter->getWeapon()->getValue() << endl;
+        cout << "\033[1;33mDMG - " << currCharacter->getWeapon()->getValue() << "\033[0m\n" << endl;
     } else {
-        cout << "You DONT have a weapon equipped!" << endl;
+        cout << "\033[1;31mYou DONT have a weapon equipped!\033[0m\n" << endl;
     }
 
 }
@@ -368,7 +368,7 @@ void GameRunner::createCharacter() {
 
 int GameRunner::printMenu() {
     cout << "\033[1;36mDays Counter: " << numDays << "\033[0m\n" << endl;
-    cout << "\033[1;37m << userName << "'s LVL: " << currCharacter->getLevel() << ", HP: " << currCharacter->getcurrHP() << "/" << currCharacter->getMaxHP() << ", XP: " << currCharacter->getcurrXP() << "/" << 100 << "\033[0m\n" << endl;
+    cout << "\033[1;36m" << userName << "'s LVL: " << currCharacter->getLevel() << ", HP: " << currCharacter->getcurrHP() << "/" << currCharacter->getMaxHP() << ", XP: " << currCharacter->getcurrXP() << "/" << 100 << "\033[0m\n" << endl;
     cout << "\033[1;30m--------------------------------------------------\033[0m\n" << endl;
     cout << "\033[1;32m1) FIGHT               3) ACCESS INVENTORY\033[0m\n" << endl;
     cout << "\033[1;32m2) EXPLORE             4) REST\033[0m\n" << endl;
