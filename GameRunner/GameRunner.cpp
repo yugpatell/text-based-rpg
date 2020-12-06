@@ -154,7 +154,7 @@ void GameRunner::printConsumables() {
 
 void GameRunner::explore() {
     cout << string(15, '\n');
-    cout << \033[1;34m" << userName << ", your current location is: \033[0m\n";
+    cout << "\033[1;34m" << userName << ", your current location is:\033[0m\n";
     printArea();
     int choice = exploreMenu();
     if (choice == 1) {
@@ -210,7 +210,7 @@ void GameRunner::printInventory() {
         if (currCharacter->equipmentAt(i)->isArmor()) {
             cout << "\033[1;33mARMOR VALUE - " << currCharacter->equipmentAt(i)->getValue() << "\033[0m\n" << endl;
         } else {
-            cout << "\033[1;33mWEAPON DMG - " << currCharacter->equipmentAt(i)->getValue() << \033[0m\n" << endl;
+            cout << "\033[1;33mWEAPON DMG - " << currCharacter->equipmentAt(i)->getValue() << "\033[0m\n" << endl;
         }
         cout << "\033[1;30m--------------------------------------------------\033[0m\n" << endl;
     }
