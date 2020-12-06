@@ -241,6 +241,10 @@ void GameRunner::useInventory() {
 }
 
 void GameRunner::changeEquipment() {
+   if (currCharacter->equipmentSize() == 0) {
+        cout << "EMPTY INVENTORY!" << endl;
+        return;
+    }
     printInventory();
     cout << "What item number would you like to equip";
     int choice = 0;
