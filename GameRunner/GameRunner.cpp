@@ -142,7 +142,7 @@ void GameRunner::printConsumables() {
     if (currCharacter->consumablesSize() > 0) {
         cout << "\033[1;30m--------------------------------------------------\033[0m" << endl;
     } else {
-        cout << endl << "\033[1;31EMPTY CONSUMABLES!" << endl;
+        cout << "\033[1;31EMPTY CONSUMABLES!" << endl;
     }
     for (unsigned int i = 0; i < currCharacter->consumablesSize(); i++) {
         cout << "\033[1;35mPOTION #" << i + 1 << "\033[0m" << endl;
@@ -204,7 +204,7 @@ void GameRunner::printInventory() {
     if (currCharacter->equipmentSize() > 0) {
         cout << "\033[1;30m--------------------------------------------------\033[0m" << endl;
     } else {
-        cout << endl << "\033[1;31mEMPTY INVENTORY!" << endl;
+        cout << "\033[1;31mEMPTY INVENTORY!" << endl;
     }
     for (unsigned int i = 0; i < currCharacter->equipmentSize(); i++) {
         cout << "\033[1;33mITEM #" << i + 1 << "\033[0m" << endl;
@@ -352,7 +352,7 @@ void GameRunner::createCharacter() {
     cout << "\033[1;30m-------------------------------------------------------------------------------------------------------------------\033[0m" << endl;
     cout << "\033[1;33m1) ARCHER - The archer ascends from poor beginnings. As he grew up, he hunted to provide for his family. Aftermonsters plagued the earth and ravaged his village, he promised to avenge his family. The archer specializes in attack.\033[0m" << endl;
     cout << "\033[1;33m2) MAGE - The mage has mystical origins, coming from an unknown dimension. Seeking to master his skills, he travelsthe realm, practicing his abstract sorcery. The mage specializes in HP.\033[0m" << endl;
-    cout << "\033[1;33m3) KNIGHT - The knight fell from royalty after being betrayed by the King. Now left with nowhere to go, the Knightstruggles to survive in the wilderness. The knight specializes in defense.\033[0m";
+    cout << "\033[1;33m3) KNIGHT - The knight fell from royalty after being betrayed by the King. Now left with nowhere to go, the Knightstruggles to survive in the wilderness. The knight specializes in defense.\033[0m" << endl;
     cout << "\033[1;30m-------------------------------------------------------------------------------------------------------------------\033[0m" << endl;
     cout << "\033[1;36mEnter the corresponding number of the character you wish to play as:\033[0m";
     int charNum;
