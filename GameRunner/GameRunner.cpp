@@ -376,7 +376,7 @@ void GameRunner::createCharacter() {
 
 int GameRunner::printMenu() {
     cout << "\033[1;36mDays Counter: " << numDays << "\033[0m" << endl;
-    cout << "\033[1;33m" << userName << "'s LVL: " << currCharacter->getLevel() << ", HP: " << currCharacter->getcurrHP() << "/" << currCharacter->getMaxHP() << ", XP: " << currCharacter->getcurrXP() << "/" << 100 << "\033[0m" << endl;
+    cout << "\033[1;33m" << userName << "'s LVL: " << currCharacter->getLevel() << ", HP: " << currCharacter->getcurrHP() << "/" << currCharacter->getMaxHP() << ", XP: " << currCharacter->getcurrXP() << "/" << currCharacter->getMaxXP() << "\033[0m" << endl;
     cout << "\033[1;30m--------------------------------------------------\033[0m" << endl;
     cout << "\033[1;32m1) FIGHT               3) ACCESS INVENTORY\033[0m" << endl;
     cout << "\033[1;32m2) EXPLORE             4) REST\033[0m" << endl;
