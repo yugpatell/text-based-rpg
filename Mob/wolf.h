@@ -2,6 +2,7 @@
 #define __WOLF_H__
 #include <stdlib.h>
 #include <time.h>
+#include <stdlib.h>
 #include "mob.h"
 
 class Wolf : public Mob {
@@ -20,7 +21,7 @@ public:
     }
 
     int attackChar(int charDefense) {
-	    return (((((2 * level / 5) + 2 ) * (35 + (level * 9 / 10)) * attack) / charDefense) / 50) + 2;
+	    return abs((((((2 * level / 5) + 2 ) * (35 + (level * 9 / 10)) * attack) / charDefense) / 50) + 2);
     }
 
 };
