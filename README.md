@@ -24,9 +24,9 @@
 
  > ## Phase II  
  ## Class Diagram
-> ![SINGLETON](https://user-images.githubusercontent.com/66883374/99351868-6ca54100-2856-11eb-89e7-36157e47fe67.png)  
-> ![STRATEGY](https://user-images.githubusercontent.com/57920851/99177857-3931ad80-26c2-11eb-92c8-e471043001f8.png)  
-> ![ABSTRACTFACTORY](https://user-images.githubusercontent.com/57920851/99177861-42227f00-26c2-11eb-9908-cd71d37aecdb.png)  
+> ![SINGLETON](https://user-images.githubusercontent.com/57920851/101395658-1c326980-387f-11eb-9103-0b3d2992b1c1.png)  
+> ![STRATEGY](https://user-images.githubusercontent.com/57920851/101395681-23f20e00-387f-11eb-89ff-57e815ce1d4a.png)  
+> ![ABSTRACTFACTORY](https://user-images.githubusercontent.com/57920851/101395603-07ee6c80-387f-11eb-8b4c-980831c16486.png)  
 > Refer to the descriptions above that describe how each pattern will be implemented in our project.
  
  
@@ -49,6 +49,10 @@
  ![Output](https://user-images.githubusercontent.com/57920851/99169077-b3aaff00-26bb-11eb-83be-1498b580d982.png)<br/>
 The output will look like this when the game starts and it will prompt the user for input everyday. As of now, the game will end whenever the user reaches 20 days or the character dies.
  ## Installation/Usage
+ > For unit tests, clone repository using recursive tag
+ 
+    $ git submodule update --init --recursive
+ 
  > Generate the makefile to run the game
  
      $ cmake .
