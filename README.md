@@ -65,7 +65,7 @@
 > ![Access Inventory Option](https://user-images.githubusercontent.com/57920851/101397869-1e49f780-3882-11eb-96d4-81ff475bc952.PNG)  
  *Access Inventoy menu when user selects "access inventory" option in menu.*
 
-   - ![Equipment](https://user-images.githubusercontent.com/57920851/101398062-649f5680-3882-11eb-8c70-ff764faf862c.PNG)  
+   * ![Equipment](https://user-images.githubusercontent.com/57920851/101398062-649f5680-3882-11eb-8c70-ff764faf862c.PNG)  
      *Output when user selects "equipment" in access inventory menu.*
     
    - ![Consumables](https://user-images.githubusercontent.com/57920851/101398152-7ed93480-3882-11eb-9ece-9900aa9be184.PNG)  
