@@ -223,8 +223,8 @@ void GameRunner::printInventory() {
 
 void GameRunner::useInventory() {
     cout << "\033[1;30m--------------------------------------------------\033[0m" << endl;
-    cout << "\033[1;32m1) EQUIPMENT             2) CONSUMABLES\033[0m" << endl;
-    cout << "\033[1;32m3) CHANGE EQUIPMENT      4) CURRENT EQUIPMENT\033[0m" << endl;
+    cout << "\033[1;32m1) EQUIPMENT             3) CONSUMABLES\033[0m" << endl;
+    cout << "\033[1;32m2) CHANGE EQUIPMENT      4) CURRENT EQUIPMENT\033[0m" << endl;
     cout << "\033[1;30m--------------------------------------------------\033[0m" << endl;
 
     cout << "\033[1;36mSelect one of the options by entering 1-2 inputs:\033[0m ";
@@ -234,9 +234,9 @@ void GameRunner::useInventory() {
     if (input == 1) {
         printInventory();
     } else if (input == 2) {
-        printConsumables();
-    } else if (input == 3) {
         changeEquipment();
+    } else if (input == 3) {
+        printConsumables();
     } else if (input == 4) {
         printCurrentEquipment();
     } else {
