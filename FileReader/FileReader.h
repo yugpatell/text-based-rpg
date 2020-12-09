@@ -12,7 +12,6 @@ class FileReader{
   public:
     vector<string> rarities;
     FileReader(){};
-
     FileReader(string fileName){
       string word;
       ifstream file(fileName);
