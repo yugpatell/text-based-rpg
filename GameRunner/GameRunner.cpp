@@ -136,7 +136,7 @@ int GameRunner::fightMenu() {
 
     if (input < 1 || input > 3) {
         cout << "\033[1;31mINVALID INPUT DETECTED, REPROMPTING THE MENU!\033[0m\n";
-        this->printMenu();
+        this->printMenu(); 
     }
     return input;
 }
@@ -253,7 +253,7 @@ void GameRunner::changeEquipment() {
     printCurrentEquipment();
     cout << endl;
     printInventory();
-    cout << "\033[1;36mWhat item number would you like to equip\033[0m";
+    cout << "\033[1;36mWhat item number would you like to equip (-1 to exit)\033[0m";
     int choice = 0;
     cin >> choice;
     int compare = choice;
@@ -261,6 +261,7 @@ void GameRunner::changeEquipment() {
         if (compare - 1 > currCharacter->equipmentSize()) {
             cout << "\033[1;31mINVALID ITEM NUMBER, PLEASE TRY AGAIN!\033[0m" << endl;
             this->changeEquipment();
+	    return;
         }
 
         if (currCharacter->equipmentAt(choice - 1)->isArmor()) {

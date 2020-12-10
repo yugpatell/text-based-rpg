@@ -14,7 +14,7 @@ class KnightAttack : public AttackStrategy {
         KnightAttack() : AttackStrategy() { };
 
         int attackMob(Character * currCharacter, Mob * currMob) {
-            return abs(((((((2 * currCharacter->getLevel()) / 5) + 2) * 35 * currCharacter->getAtk()) / currCharacter->getcurrHP()) / 5 / 50) + 2);
+            return abs(((((((2 * currCharacter->getLevel()) / 5) + 2) * 35 * currCharacter->getAtk()) * currCharacter->getMaxHP() / currCharacter->getcurrHP()) / currCharacter->getcurrHP() / 50) + 2);
         }
 };
 
