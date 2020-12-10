@@ -51,10 +51,6 @@
   *Output when user selects "heal" option in menu.* 
 
  ## Installation/Usage
- > For unit tests, clone repository using recursive tag
- 
-    $ git submodule update --init --recursive
- 
  > Generate the makefile to run the game
  
      $ cmake .
