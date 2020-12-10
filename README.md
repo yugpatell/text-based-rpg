@@ -1,12 +1,8 @@
 ![CI](https://github.com/cs100/final-project-smesd001-ypate030-ttran419/workflows/CI/badge.svg?branch=master)
-> As you complete each section you **must** remove the prompt text. Every *turnin* of this project includes points for formatting of this README so keep it clean and keep it up to date. 
- > Prompt text is any lines beginning with "\<"
- > Replace anything between \<...\> with your project specifics and remove angle brackets. For example, you need to name your project and replace the header right below this line with that title (no angle brackets). 
 # \<Text-Based RPG\>
- > Your author list below should include links to all members GitHub and should begin with a "\<" (remove existing author).
- 
- > Authors: \<[Yug Patel](https://github.com/yugpatell)\>  \<[Thomas Tran](https://github.com/TimusTrun)\> \<[Scott Mesdjian](https://github.com/scottmez)\> 
 
+ > Authors: \<[Yug Patel](https://github.com/yugpatell)\>  \<[Thomas Tran](https://github.com/TimusTrun)\> \<[Scott Mesdjian](https://github.com/scottmez)\> 
+ 
 ## Project Description
 > Game Design has always been a topic that interested us. This project would be a stepping stone, not only to demonstrate our ability of using C++ but, into professional game development and working cohesively in a group. C++ is the main language that will be used to create this project. GoogleTest is utilized to perform several unit tests. **Singleton** - The character class illustrates the singleton pattern because it keeps track of the single character and makes sure there is only one at a time. We picked the singleton pattern because we knew that there would only ever need to be one character at a time. We also thought that implementing this pattern would help protect against possible bugs where more than one character was created. 
 **Strategy** -  The “attack()” function within the parent class of character will change depending on the type of character created during runtime. This illustrates how an object's behavior will vary depending on the execution of the algorithm in context of the object. It will allow us to select an algorithm that will match with what character that is created.
@@ -71,6 +67,3 @@
      
      $ ./text-based-rpg
      
- ## Testing
- > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
- 
