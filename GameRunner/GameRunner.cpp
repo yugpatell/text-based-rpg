@@ -177,8 +177,8 @@ void GameRunner::explore() {
 
 int GameRunner::exploreMenu() {
     cout << "\033[1;30m--------------------------------------------------\033[0m" << endl;
-    cout << "\033[1;32m1) FOREST             3) DESERT\033[0m" << endl;
-    cout << "\033[1;32m2) CAVE               4) ARCTIC\033[0m" << endl;
+    cout << "\033[1;32m1) FOREST - chest armor     3) DESERT - leg armor\033[0m" << endl;
+    cout << "\033[1;32m2) CAVE - potions           4) ARCTIC - weapons\033[0m" << endl;
     cout << "\033[1;30m--------------------------------------------------\033[0m" << endl;
 
     cout << "\033[1;36mSelect one of the options by entering 1-4 inputs:\033[0m ";
