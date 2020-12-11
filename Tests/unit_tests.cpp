@@ -1,6 +1,9 @@
 #include "gtest/gtest.h"
 #include "mob_test.h"
 #include "character_test.h"
+#include "armor_test.h"
+#include "consumable_test.h"
+#include "weapon_test.h"
 
 
 

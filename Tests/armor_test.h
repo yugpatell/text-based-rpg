@@ -2,7 +2,6 @@
 #define __ARMOR_TEST_HPP__
 
 #include "../Equipable/Armor.h"
-#include "../Equipable/Equipable.cpp"
 #include "../Equipable/ArmoredLeggings.h"
 #include "../Equipable/Chainmail.h"
 #include "../Equipable/Chestplate.h"
