@@ -34,4 +34,4 @@ jobs:
             make
       - name: run tests
         run: |
-            ./tests
+            ./test
