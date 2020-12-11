@@ -8,10 +8,9 @@ class Robe : public Armor {
         private:
                 string name;
         public:
-                Robe() : Armor(){ name = " ";}
+                Robe() : Armor(){ name = " "; role = 1;}
                 Robe(int lvl, int rarity, string n) : Armor(lvl, rarity, 1, 0){ name = n;}
                 virtual string getName() { return name;}
 };
 
 #endif //__ROBE_H__
-

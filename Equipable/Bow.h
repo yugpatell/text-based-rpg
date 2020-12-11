@@ -8,7 +8,7 @@ class Bow : public Weapon {
 	private:
 		string name;
 	public:
-		Bow() : Weapon(){ name = " ";}
+		Bow() : Weapon(){ name = " "; role = 2;}
 		Bow(int lvl, int rarity, string n) : Weapon(lvl, rarity, 2){ name = n;}
 		virtual string getName() { return name;}
 };
