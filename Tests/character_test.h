@@ -3,7 +3,7 @@
 
 #include "../Character/Archer.cpp"
 #include "../Character/Knight.cpp"
-#include "../Character/Mage,cpp"
+#include "../Character/Mage.cpp"
 
 TEST(CharacterTest, defaultArcherCharacter){
   Character* char2 = new Archer("Thomas", ARCHER);
