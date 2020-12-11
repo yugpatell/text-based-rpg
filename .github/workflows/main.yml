@@ -24,11 +24,12 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-        with:
+        with: 
             submodules: recursive
-
-      # Runs a single command using the runners shell
-      - name: generate makefiles
+      - name: gen makefiles
         run: |
             cmake .
             make
+      - name: run generated tests
+        run:
+            ./test
