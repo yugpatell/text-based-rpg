@@ -1,5 +1,7 @@
 #include "gtest/gtest.h"
+#include "mob_test.h"
 #include "character_test.h"
+
 
 
 int main(int argc, char **argv) {
