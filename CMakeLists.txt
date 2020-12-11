@@ -1,6 +1,12 @@
-cmake_minimum_required(VERSION 2.8)
-project(text-based-rpg)
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
 
-set(CMAKE_CXX_STANDARD 14)
+ADD_SUBDIRECTORY(googletest)
 
-add_executable(text-based-rpg main.cpp)
+SET(CMAKE_CXX_STANDARD 11)
+
+ADD_EXECUTABLE(test Tests/unit_tests.cpp)
+
+ADD_EXECUTABLE(text-based-rpg main.cpp)
+
+TARGET_LINK_LIBRARIES(test gtest)
+TARGET_COMPILE_DEFINITIONS(test PRIVATE gtest_disable_pthreads=ON)

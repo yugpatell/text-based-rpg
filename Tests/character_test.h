@@ -105,6 +105,7 @@ TEST(CharacterTest, CustomCharacter){
   EXPECT_EQ(char8->getLevel(), 5);
   EXPECT_EQ(char8->getMaxXP(), 200);
   EXPECT_EQ(char8->getcurrXP(), 0);
+
 }
 
 

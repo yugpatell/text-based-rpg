@@ -7,9 +7,6 @@ on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
-
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -24,11 +21,12 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-        with:
+        with: 
             submodules: recursive
-
-      # Runs a single command using the runners shell
-      - name: generate makefiles
+      - name: gen makefiles
         run: |
             cmake .
             make
+      - name: run generated tests
+        run:
+            ./test
