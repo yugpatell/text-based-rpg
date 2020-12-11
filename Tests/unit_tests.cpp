@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-//includes here
+#include "character_test.h"
 
 
 int main(int argc, char **argv) {
