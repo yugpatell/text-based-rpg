@@ -42,7 +42,7 @@ TEST(CharacterTest, defaultKnightCharacter){
   EXPECT_EQ(char4->getcurrXP(), 0);
   EXPECT_EQ(char4->getMaxXP(), 100);
   EXPECT_TRUE(char4->getcharType() == KNIGHT);
-  EXPE:CT_TRUE(char4->getChestplate() == nullptr);
+  EXPECT_TRUE(char4->getChestplate() == nullptr);
   EXPECT_TRUE(char4->getLeggings() == nullptr);
   EXPECT_TRUE(char4->getWeapon() == nullptr);
 }
