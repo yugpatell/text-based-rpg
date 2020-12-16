@@ -2,25 +2,13 @@
 # Text-Based RPG
 
  > Authors: \<[Yug Patel](https://github.com/yugpatell)\>  \<[Thomas Tran](https://github.com/TimusTrun)\> \<[Scott Mesdjian](https://github.com/scottmez)\> 
-## Phase I 
- ## Project Description
-> Game Design has always been a topic that interested us. This project would be a stepping stone, not only to demonstrate our ability of using C++ but, into professional game development and working cohesively in a group. C++ is the main language that will be used to create this project. GoogleTest is utilized to perform several unit tests. **Singleton** - The character class illustrates the singleton pattern because it keeps track of the single character and makes sure there is only one at a time. We picked the singleton pattern because we knew that there would only ever need to be one character at a time. We also thought that implementing this pattern would help protect against possible bugs where more than one character was created. 
-**Strategy** -  The “attack()” function within the parent class of character will change depending on the type of character created during runtime. This illustrates how an object's behavior will vary depending on the execution of the algorithm in context of the object. It will allow us to select an algorithm that will match with what character that is created.
-**Factory** - Different factories would be created depending on the chosen character. These factories would decide which weapon subclass to implement. For example, the archer weapon subclass would be chosen if the archer was the chosen character class.  
 
-## Phase II  
- ## Class Diagram
+ ## Class Diagrams
 > ![SINGLETON](https://user-images.githubusercontent.com/57920851/101395658-1c326980-387f-11eb-9103-0b3d2992b1c1.png)  
 > ![STRATEGY](https://user-images.githubusercontent.com/57920851/101395681-23f20e00-387f-11eb-89ff-57e815ce1d4a.png)  
 > ![ABSTRACTFACTORY](https://user-images.githubusercontent.com/57920851/101395603-07ee6c80-387f-11eb-8b4c-980831c16486.png)  
-> Refer to the descriptions above that describe how each pattern will be implemented in our project.
+
  
- ## Phase III
-  ## Final deliverable
- > All group members will give a demo to the TA during lab time. The TA will check the demo and the project GitHub repository and ask a few questions to all the team members. 
- > Before the demo, you should do the following:
- > * Complete the sections below (i.e. Screenshots, Installation/Usage, Testing)
- > * Plan one more sprint (that you will not necessarily complete before the end of the quarter). Your In-progress and In-testing columns should be empty (you are not doing more work currently) but your TODO column should have a full sprint plan in it as you have done before. This should include any known bugs (there should be some) or new features you would like to add. These should appear as issues/cards on your Kanban board. 
   ## Screenshots
  > Screenshots of the input/output after running your application
  
