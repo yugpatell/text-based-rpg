@@ -1,4 +1,4 @@
-![CI](https://github.com/yugpatell/text-based-rpg/actions/workflows/main.yml/badge.svg)](https://github.com/yugpatell/text-based-rpg/actions/workflows/main.yml)
+![CI](https://github.com/yugpatell/text-based-rpg/actions/workflows/main.yml/badge.svg)
 # Text-Based RPG
 
  > Authors: \<[Yug Patel](https://github.com/yugpatell)\>  \<[Thomas Tran](https://github.com/TimusTrun)\> \<[Scott Mesdjian](https://github.com/scottmez)\> 
