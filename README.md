@@ -1,4 +1,4 @@
-![CI](https://github.com/cs100/final-project-smesd001-ypate030-ttran419/workflows/CI/badge.svg?branch=master)
+![CI](https://github.com/yugpatell/text-based-rpg/actions/workflows/main.yml/badge.svg)](https://github.com/yugpatell/text-based-rpg/actions/workflows/main.yml)
 # Text-Based RPG
 
  > Authors: \<[Yug Patel](https://github.com/yugpatell)\>  \<[Thomas Tran](https://github.com/TimusTrun)\> \<[Scott Mesdjian](https://github.com/scottmez)\> 
@@ -10,7 +10,6 @@
 
  
   ## Screenshots
- > Screenshots of the input/output after running your application
  
  > ![Welcome Screen](https://user-images.githubusercontent.com/57920851/101397482-982db100-3881-11eb-976a-76303980bb7d.PNG)
    *Welcome screen when user runs the game.*
